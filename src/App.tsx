@@ -1,10 +1,10 @@
 import "./App.css";
-import { Posts } from "./pages/Posts";
+import { PostsPage } from "./pages/PostsPage";
 
 const App: React.FC = () => {
   return (
     <>
-      <Posts></Posts>
+      <PostsPage />
     </>
   );
 };

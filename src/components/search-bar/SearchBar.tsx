@@ -15,7 +15,7 @@ export const SearchBar: React.FC = () => {
           name="selectedFruit"
           className="search-bar__box__input search-bar__box__input__text"
         >
-          <option value="" disabled selected hidden>
+          <option disabled selected hidden>
             Filter by author name
           </option>
           <option value="apple">Apple</option>
