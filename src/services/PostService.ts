@@ -5,7 +5,7 @@ import { DataService } from "./DataService";
 export class PostService {
   dataService: DataService = new DataService();
 
-  async getPosts(): Promise<Post[] | unknown> {
+  async getPosts(): Promise<Post[] | null> {
     const dataService = new DataService();
     try {
       const responseData = await dataService.get<Post[]>(API_URLS.Posts);
@@ -13,6 +13,7 @@ export class PostService {
       return responseData;
     } catch (error) {
       console.error("Error fetching data:", error);
+      return null;
     }
   }
 }

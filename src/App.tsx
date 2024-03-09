@@ -1,11 +1,12 @@
 import "./App.css";
+import { Posts } from "./pages/Posts";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
-      <h1>Posts</h1>
+      <Posts></Posts>
     </>
   );
-}
+};
 
 export default App;
