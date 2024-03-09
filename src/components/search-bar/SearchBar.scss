@@ -1,0 +1,27 @@
+.search-bar {
+  background: #f7f7f8;
+  border-radius: 10px;
+  display: flex;
+  gap: 40px;
+  padding: 15px;
+  &__box {
+    flex-grow: 1;
+
+    &__input {
+      height: 46px;
+      background: #efeff2;
+      border-radius: 5px;
+      width: 100%;
+      padding-left: 10px;
+      border: none;
+
+      &__text {
+        text-align: left;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #b4b7d4;
+      }
+    }
+  }
+}

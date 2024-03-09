@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { postServiceInstance } from "../services/PostService";
 import { Header } from "../components/header/Header";
 import { usePostStore } from "../store/posts-store";
+import { SearchBar } from "../components/search-bar/SearchBar";
 
 export const Posts: React.FC = () => {
   const setPosts = usePostStore((state) => state.setPosts);
@@ -20,6 +21,7 @@ export const Posts: React.FC = () => {
   return (
     <>
       <Header />
+      <SearchBar />
     </>
   );
 };
