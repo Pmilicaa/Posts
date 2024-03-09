@@ -1,6 +1,6 @@
 import { User } from "../models/User";
-import { APIUrl } from "./DataAPI";
-import { DataService } from "./data.service";
+import { API_URLS } from "../constants";
+import { DataService } from "./DataService";
 
 export class UserService {
   dataService: DataService = new DataService();
@@ -8,7 +8,7 @@ export class UserService {
   async getUsers(): Promise<User[] | unknown> {
     const dataService = new DataService();
     try {
-      const responseData = await dataService.get<User[]>(APIUrl.Users);
+      const responseData = await dataService.get<User[]>(API_URLS.Users);
       console.log("Fetched users data:", responseData);
       return responseData;
     } catch (error) {
