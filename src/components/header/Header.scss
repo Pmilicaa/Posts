@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 25rem;
+  background: #184979 0% 0% no-repeat padding-box;
+
+  &__title {
+    margin: 0;
+    text-align: left;
+    font: normal normal normal 70px/90px Montserrat;
+    color: #ffffff;
+    padding-left: 10%;
+  }
+}
