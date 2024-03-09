@@ -1,6 +1,6 @@
 import { Post } from "../models/Post";
-import { APIUrl } from "./DataAPI";
-import { DataService } from "./data.service";
+import { API_URLS } from "../constants";
+import { DataService } from "./DataService";
 
 export class PostService {
   dataService: DataService = new DataService();
@@ -8,7 +8,7 @@ export class PostService {
   async getPosts(): Promise<Post[] | unknown> {
     const dataService = new DataService();
     try {
-      const responseData = await dataService.get<Post[]>(APIUrl.Posts);
+      const responseData = await dataService.get<Post[]>(API_URLS.Posts);
       console.log("Fetched posts data:", responseData);
       return responseData;
     } catch (error) {

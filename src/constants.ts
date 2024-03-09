@@ -1,4 +1,4 @@
-export const APIUrl = {
+export const API_URLS = {
   Posts: "posts",
   Users: "users",
   Comments: "comments",

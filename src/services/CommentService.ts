@@ -1,6 +1,6 @@
 import { Comment } from "../models/Comment";
-import { APIUrl } from "./DataAPI";
-import { DataService } from "./data.service";
+import { API_URLS } from "../constants";
+import { DataService } from "./DataService";
 
 export class CommentService {
   dataService: DataService = new DataService();
@@ -8,7 +8,7 @@ export class CommentService {
   async getComments(): Promise<Comment[] | unknown> {
     const dataService = new DataService();
     try {
-      const responseData = await dataService.get<Comment[]>(APIUrl.Comments);
+      const responseData = await dataService.get<Comment[]>(API_URLS.Comments);
       console.log("Fetched comment data:", responseData);
       return responseData;
     } catch (error) {
