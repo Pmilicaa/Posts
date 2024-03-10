@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { PostsPage } from "./pages/PostsPage";
 import { ErrorPage } from "./pages/ErrorPage";
 import { PostPage } from "./pages/PostPage";
 import App from "./App";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,11 +14,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/pages",
+        path: "/posts",
         element: <PostsPage />,
       },
       {
-        path: "pages/:id",
+        path: "posts/:id",
         element: <PostPage />,
       },
     ],
