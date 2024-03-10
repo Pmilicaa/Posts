@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { postServiceInstance } from "../services/PostService";
+import "./PostsPage.scss";
 import { Header } from "../components/header/Header";
 import { usePostStore } from "../store/posts-store";
 import { SearchBar } from "../components/search-bar/SearchBar";
@@ -8,31 +8,28 @@ import { Pagination } from "../components/pagination/Pagination";
 
 export const PostsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 10;
   const posts = usePostStore((state) => state.posts);
+  const filteredPosts = usePostStore((state) => state.filteredPosts);
+
+  const setCurrentPagedPosts = usePostStore(
+    (state) => state.setCurrentPagedPosts
+  );
+  const recordsPerPage = 10;
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = posts.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(posts.length / recordsPerPage);
-  const setPosts = usePostStore((state) => state.setPosts);
-
-  const fetchData = async () => {
-    const responseData = await postServiceInstance.getPosts();
-    if (responseData) {
-      setPosts(responseData);
-    }
-  };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    setCurrentPagedPosts(currentRecords);
+  }, [posts, currentPage]);
 
   return (
     <>
       <Header />
-      <div style={{ padding: "6rem 11rem" }}>
+      <div className="pages">
         <SearchBar />
-        <PostGrid data={currentRecords} />
+        <PostGrid data={filteredPosts} />
         <div
           style={{
             display: "flex",

@@ -4,7 +4,7 @@ import prevIcon from "../../assets/prev.svg";
 
 interface PaginationProps {
   currentPage: number;
-  setCurrentPage?: any;
+  setCurrentPage: (page: number) => void;
   nPages: number;
 }
 export const Pagination: React.FC<PaginationProps> = ({
@@ -14,12 +14,14 @@ export const Pagination: React.FC<PaginationProps> = ({
 }: PaginationProps) => {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
 
-  const goToNextPage = () => {
+  const goToNextPage = (): void => {
     if (currentPage !== nPages) setCurrentPage(currentPage + 1);
   };
-  const goToPrevPage = () => {
+
+  const goToPrevPage = (): void => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
+
   return (
     <div className="pagination">
       <a className="pagination__icons" onClick={goToPrevPage} href="#">
