@@ -26,7 +26,10 @@ export const PostsPage: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header
+        title={`Posts found: ${filteredPosts.length}`}
+        style={{ backgroundColor: "#184979", color: "white" }}
+      />
       <div className="pages">
         <SearchBar />
         <PostGrid data={filteredPosts} />

@@ -2,6 +2,8 @@ import React from "react";
 import "./PostCard.scss";
 import rightArrow from "../../assets/right-arrow.svg";
 import { Post } from "../../models/Post";
+import { useNavigate } from "react-router-dom";
+import { getCapitalizedText } from "../../util/helpers";
 
 interface PostCardProps {
   post: Post;
@@ -11,8 +13,10 @@ export const PostCard: React.FC<PostCardProps> = ({
   post,
   isLarge,
 }: PostCardProps) => {
-  const getCapitalizedText = (text: string): string => {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+  const navigate = useNavigate();
+
+  const handleOnClick = () => {
+    navigate(`/posts/${post.id}`);
   };
 
   return (
@@ -23,7 +27,7 @@ export const PostCard: React.FC<PostCardProps> = ({
       </span>
       <div className="card__content">
         <p className="card__content__body">{getCapitalizedText(post.body)}</p>
-        <button className="card__content__button">
+        <button className="card__content__button" onClick={handleOnClick}>
           Read More <img src={rightArrow}></img>
         </button>
       </div>

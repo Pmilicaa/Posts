@@ -3,8 +3,6 @@
   align-items: center;
   justify-content: start;
   height: 25rem;
-  background: #184979 0% 0% no-repeat padding-box;
-
   &__title {
     margin: 0;
     text-align: left;
@@ -13,7 +11,6 @@
     font-weight: 400;
     font-style: normal;
     font-size: 70px;
-    color: #ffffff;
     padding-left: 10%;
   }
 }

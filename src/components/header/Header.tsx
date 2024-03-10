@@ -1,12 +1,17 @@
+import { getCapitalizedText } from "../../util/helpers";
 import "./Header.scss";
-import { usePostStore } from "../../store/posts-store";
 
-export const Header: React.FC = () => {
-  const filteredPosts = usePostStore((state) => state.filteredPosts);
-
+interface HeaderProps {
+  title: string;
+  style: object;
+}
+export const Header: React.FC<HeaderProps> = ({
+  title,
+  style,
+}: HeaderProps) => {
   return (
-    <div className="header">
-      <p className="header__title">Posts found: {filteredPosts.length}</p>
+    <div className="header" style={style}>
+      <p className="header__title">{getCapitalizedText(title)}</p>
     </div>
   );
 };
