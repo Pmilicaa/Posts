@@ -18,7 +18,7 @@ export class PostService {
     }
   }
 
-  async getPostById(postId: string): Promise<Post | undefined> {
+  async getPostFromStore(postId: string): Promise<Post | undefined> {
     const posts = usePostStore.getState().posts;
     if (posts.length) {
       return posts.find((post: Post) => post.id == postId);

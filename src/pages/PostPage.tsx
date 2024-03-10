@@ -14,7 +14,7 @@ export const PostPage: React.FC = () => {
     if (id) {
       const responseCommentData =
         await postServiceInstance.getCommentsByPost(id); //failure
-      const post = await postServiceInstance.getPostById(id);
+      const post = await postServiceInstance.getPostFromStore(id);
       if (responseCommentData) {
         setComments(responseCommentData);
       }
