@@ -5,7 +5,7 @@ import { DataService } from "./DataService";
 export class UserService {
   dataService: DataService = new DataService();
 
-  async getUsers(): Promise<User[] | unknown> {
+  async getUsers(): Promise<User[] | null> {
     const dataService = new DataService();
     try {
       const responseData = await dataService.get<User[]>(API_URLS.Users);
@@ -13,6 +13,7 @@ export class UserService {
       return responseData;
     } catch (error) {
       console.error("Error fetching data:", error);
+      return null;
     }
   }
 }

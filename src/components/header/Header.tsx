@@ -2,11 +2,11 @@ import "./Header.scss";
 import { usePostStore } from "../../store/posts-store";
 
 export const Header: React.FC = () => {
-  const posts = usePostStore((state) => state.posts);
+  const filteredPosts = usePostStore((state) => state.filteredPosts);
 
   return (
     <div className="header">
-      <p className="header__title">Posts found: {posts.length}</p>
+      <p className="header__title">Posts found: {filteredPosts.length}</p>
     </div>
   );
 };
