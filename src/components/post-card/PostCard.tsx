@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./PostCard.scss";
 import rightArrow from "../../assets/right-arrow.svg";
 import { Post } from "../../models/Post";
 import { useNavigate } from "react-router-dom";
-import { getCapitalizedText } from "../../util/helpers";
+import { getCapitalizedText, getSplitBody } from "../../util/helpers";
 
 interface PostCardProps {
   post: Post;
@@ -14,10 +14,16 @@ export const PostCard: React.FC<PostCardProps> = ({
   isLarge,
 }: PostCardProps) => {
   const navigate = useNavigate();
+  const [splitBody, setSplitBody] = useState<string[]>();
 
   const handleOnClick = () => {
     navigate(`/posts/${post.id}`);
   };
+
+  useEffect(() => {
+    const bodyParts = getSplitBody(post.body);
+    setSplitBody(bodyParts);
+  }, []);
 
   return (
     <div className="card">
@@ -26,7 +32,14 @@ export const PostCard: React.FC<PostCardProps> = ({
         {isLarge ? "." : ""}
       </span>
       <div className="card__content">
-        <p className="card__content__body">{getCapitalizedText(post.body)}</p>
+        <p className="card__content__body">
+          {splitBody &&
+            splitBody.map((paragraph) => {
+              return (
+                <span className="card__content__body__parag">{`${getCapitalizedText(paragraph)}. `}</span>
+              );
+            })}
+        </p>
         <button className="card__content__button" onClick={handleOnClick}>
           Read More <img src={rightArrow}></img>
         </button>
