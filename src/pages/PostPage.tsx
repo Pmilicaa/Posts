@@ -3,7 +3,7 @@ import "./PostPage.scss";
 import { Header } from "../components/header/Header";
 import { Post } from "../models/Post";
 import { postServiceInstance } from "../services/PostService";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Comment } from "../models/Comment";
 import { getCapitalizedText, getSplitBody } from "../util/helpers";
 import { User } from "../models/User";
@@ -16,6 +16,7 @@ export const PostPage: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [splitBody, setSplitBody] = useState<string[]>([]);
   const [author, setAuthor] = useState<User>();
+  const navigate = useNavigate();
 
   const getAuthor = (postInfo: Post): void => {
     const user = userServiceInstance.getUserById(postInfo.userId);
@@ -55,7 +56,12 @@ export const PostPage: React.FC = () => {
       const bodyParts = getSplitBody(postInfo.body);
       setSplitBody(bodyParts);
     }
-  }, [postInfo]);
+  }, [postInfo, id]);
+
+  const handleOnClick = (increment = false): void => {
+    const postId = increment ? Number(id) + 1 : Math.max(Number(id) - 1, 1);
+    navigate(`/posts/${postId}`);
+  };
 
   return (
     <div>
@@ -79,9 +85,12 @@ export const PostPage: React.FC = () => {
               );
             })}
           </div>
-          <hr style={{ border: " 0.5px solid #F7F7F8" }} />
+          <hr style={{ border: "0.5px solid #F7F7F8" }} />
           <div className="navigate1">
-            <button className="card__content__button">
+            <button
+              className="card__content__button"
+              onClick={() => handleOnClick()}
+            >
               <img
                 style={{
                   transform: "matrix(-1, 0, 0, -1, 0, 0)",
@@ -91,7 +100,10 @@ export const PostPage: React.FC = () => {
               />
               <span className="padding-arr">Previous Article</span>
             </button>
-            <button className="card__content__button">
+            <button
+              className="card__content__button"
+              onClick={() => handleOnClick(true)}
+            >
               <span className="padding-arr">Next Article</span>{" "}
               <img src={rightArrow} />
             </button>
