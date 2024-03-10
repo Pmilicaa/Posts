@@ -10,11 +10,12 @@
     color: #6c6c78;
     background: none;
     font-size: 16px;
+    cursor: pointer;
   }
   &__icons {
     display: flex;
   }
 }
 .active {
-  background: #1298d2;
+  border-bottom: 2px solid #1298d2;
 }
