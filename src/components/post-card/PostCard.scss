@@ -15,7 +15,7 @@
     font-weight: 600;
     font-style: normal;
     padding-bottom: 10px;
-    width: 390px;
+    max-width: 390px;
 
     &__large {
       font-size: 35px;
@@ -48,6 +48,7 @@
       font-size: 16px;
       font-weight: 500;
       background-color: white;
+      cursor: pointer;
     }
   }
 }
