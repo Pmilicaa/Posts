@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import { PostsPage } from "./pages/PostsPage";
-import { ErrorPage } from "./pages/ErrorPage";
-import { PostPage } from "./pages/PostPage";
+import "./index.scss";
+import { PostsPage } from "./pages/posts/Posts";
+import { ErrorPage } from "./pages/error/Error";
+import { PostPage } from "./pages/post/Post";
 import App from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <PostsPage />,
       },
       {
-        path: "posts/:id",
+        path: "/posts/:id",
         element: <PostPage />,
       },
     ],

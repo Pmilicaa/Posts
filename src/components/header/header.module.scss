@@ -1,0 +1,14 @@
+@use "../../assets/styles/global.scss" as *;
+
+.header {
+  @include flexContainer;
+  font-size: var(--font70);
+  p {
+    margin: 0;
+    text-align: left;
+    font-family: var(--monserat);
+    font-optical-sizing: auto;
+    font-weight: var(--fontWeight400);
+    font-style: normal;
+  }
+}

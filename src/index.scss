@@ -1,0 +1,6 @@
+@use "./assets/styles/global.scss" as *;
+
+body {
+  @include no-margin;
+  @include no-padding;
+}

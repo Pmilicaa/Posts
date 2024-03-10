@@ -1,21 +1,21 @@
-import "./Pagination.scss";
+import styles from "./pagination.module.scss";
 import nextIcon from "../../assets/next.svg";
 import prevIcon from "../../assets/prev.svg";
 
 interface PaginationProps {
   currentPage: number;
   setCurrentPage: (page: number) => void;
-  nPages: number;
+  numberOfPages: number;
 }
-export const Pagination: React.FC<PaginationProps> = ({
+export const Pagination = ({
   currentPage,
   setCurrentPage,
-  nPages,
+  numberOfPages,
 }: PaginationProps) => {
-  const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
+  const pageNumbers = [...Array(numberOfPages + 1).keys()].slice(1);
 
   const goToNextPage = (): void => {
-    if (currentPage !== nPages) setCurrentPage(currentPage + 1);
+    if (currentPage !== numberOfPages) setCurrentPage(currentPage + 1);
   };
 
   const goToPrevPage = (): void => {
@@ -23,24 +23,24 @@ export const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="pagination">
-      <a className="pagination__icons" onClick={goToPrevPage} href="#">
+    <div className={styles.container}>
+      <a className={styles.icons} onClick={goToPrevPage}>
         <img src={prevIcon} />
       </a>
       {pageNumbers.map((pgNumber) => (
         <div
           key={pgNumber}
-          className={`${currentPage === pgNumber ? "active" : ""} `}
+          className={`${currentPage === pgNumber ? styles.active : ""} `}
         >
           <button
             onClick={() => setCurrentPage(pgNumber)}
-            className="pagination__number"
+            className={styles.number}
           >
             {pgNumber}
           </button>
         </div>
       ))}
-      <a className="pagination__icons" onClick={goToNextPage} href="#">
+      <a className={styles.icons} onClick={goToNextPage} href="#">
         <img src={nextIcon} />
       </a>
     </div>

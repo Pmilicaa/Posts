@@ -1,37 +1,35 @@
+@use "../../assets/styles/global.scss" as *;
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 30px;
   padding-top: 20px;
-  &__item {
+  .item {
     padding: 20px 20px 20px 0px;
     min-width: 300px;
   }
   :first-child {
     grid-column: span 2;
   }
-}
 
-@media only screen and (max-width: 1024px) {
-  .grid {
+  @include handheld {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 10px;
     padding-top: 20px;
-    &__item {
+    .item {
       padding: 10px;
     }
   }
-}
-@media only screen and (max-width: 600px) {
-  .grid {
+  @include mobile {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
     gap: 10px;
-    &__item {
+    .item {
       padding: 10px;
     }
   }

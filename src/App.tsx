@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import "./App.css";
 import { userServiceInstance } from "./services/UserService";
 import { usePostStore } from "./store/posts-store";
@@ -6,7 +6,7 @@ import { useUserStore } from "./store/users-store";
 import { postServiceInstance } from "./services/PostService";
 import { Outlet } from "react-router-dom";
 
-const App: React.FC = () => {
+const App = (): ReactElement => {
   const setUsers = useUserStore((state) => state.setUsers);
   const setPosts = usePostStore((state) => state.setPosts);
 
