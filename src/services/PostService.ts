@@ -4,6 +4,11 @@ import { DataService } from "./DataService";
 import { usePostStore } from "../store/posts-store";
 import { Comment } from "../models/Comment";
 
+interface Index {
+  previous: number;
+  next: number;
+  nPages: number;
+}
 export class PostService {
   dataService: DataService = new DataService();
 
@@ -49,6 +54,15 @@ export class PostService {
     } catch (error) {
       console.error("Error fetching data:", error);
       return null;
+    }
+  }
+
+  getPrevAndNextIndex(postId: number): Index | undefined {
+    const posts = usePostStore.getState().posts;
+    if (posts.length) {
+      const prevIndex = postId > 0 ? postId - 1 : 1;
+      const nextIndex = postId < posts.length - 1 ? postId + 1 : posts.length;
+      return { previous: prevIndex, next: nextIndex, nPages: posts.length };
     }
   }
 }

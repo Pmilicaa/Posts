@@ -10,12 +10,18 @@ import { User } from "../../models/User";
 import { userServiceInstance } from "../../services/UserService";
 import rightArrow from "../../assets/right-arrow.svg";
 
+enum IndexEnum {
+  PREV = "prev",
+  NEXT = "next",
+}
+
 export const PostPage = (): ReactElement => {
   let { id } = useParams();
   const [postInfo, setPostInfo] = useState<Post>();
   const [comments, setComments] = useState<Comment[]>([]);
   const [splitBody, setSplitBody] = useState<string[]>([]);
   const [author, setAuthor] = useState<User>();
+  const [index, setIndex] = useState<any>();
   const navigate = useNavigate();
 
   const getAuthor = (postInfo: Post): void => {
@@ -37,7 +43,7 @@ export const PostPage = (): ReactElement => {
   const fetchData = async () => {
     if (id) {
       const responseCommentData =
-        await postServiceInstance.getCommentsByPost(id); //failure
+        await postServiceInstance.getCommentsByPost(id);
       const responsePostData = await postServiceInstance.getPostFromStore(id);
       if (responseCommentData) {
         setComments(responseCommentData);
@@ -49,17 +55,28 @@ export const PostPage = (): ReactElement => {
     }
   };
 
+  const setPrevNextIndex = (): void => {
+    const indexVal = id && postServiceInstance.getPrevAndNextIndex(Number(id));
+    setIndex(indexVal);
+  };
+
+  useEffect(() => {
+    setPrevNextIndex();
+  }, []);
+
   useEffect(() => {
     fetchData();
     if (postInfo) {
       const bodyParts = getSplitBody(postInfo.body);
       setSplitBody(bodyParts);
+      setPrevNextIndex();
     }
   }, [postInfo, id]);
 
-  const handleOnClick = (increment = false): void => {
-    const postId = increment ? Number(id) + 1 : Math.max(Number(id) - 1, 1);
-    navigate(`/posts/${postId}`);
+  const handleOnClick = (type: string): void => {
+    const postIndex =
+      index && type === IndexEnum.PREV ? index.previous : index.next;
+    navigate(`/posts/${postIndex}`);
   };
 
   return (
@@ -86,7 +103,11 @@ export const PostPage = (): ReactElement => {
           </div>
           <hr style={{ border: "0.5px solid #F7F7F8" }} />
           <div className={styles.navigate1}>
-            <button className={styles.button} onClick={() => handleOnClick()}>
+            <button
+              className={styles.button}
+              onClick={() => handleOnClick(IndexEnum.PREV)}
+              disabled={Number(postInfo.id) === 1}
+            >
               <img
                 style={{
                   transform: "matrix(-1, 0, 0, -1, 0, 0)",
@@ -98,9 +119,10 @@ export const PostPage = (): ReactElement => {
             </button>
             <button
               className={styles.button}
-              onClick={() => handleOnClick(true)}
+              onClick={() => handleOnClick(IndexEnum.NEXT)}
+              disabled={Number(postInfo.id) + 1 > index?.nPages}
             >
-              <span className={styles.paddingArr}>Next Article</span>{" "}
+              <span className={styles.paddingArr}>Next Article</span>
               <img src={rightArrow} />
             </button>
           </div>
