@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./PostCard.scss";
+import { ReactElement, useEffect, useState } from "react";
+import styles from "./postCard.module.scss";
 import rightArrow from "../../assets/right-arrow.svg";
 import { Post } from "../../models/Post";
 import { useNavigate } from "react-router-dom";
@@ -9,10 +9,7 @@ interface PostCardProps {
   post: Post;
   isLarge?: boolean;
 }
-export const PostCard: React.FC<PostCardProps> = ({
-  post,
-  isLarge,
-}: PostCardProps) => {
+export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
   const navigate = useNavigate();
   const [splitBody, setSplitBody] = useState<string[]>();
 
@@ -26,21 +23,23 @@ export const PostCard: React.FC<PostCardProps> = ({
   }, []);
 
   return (
-    <div className="card">
-      <span className={!isLarge ? "card__title" : "card__title__large"}>
+    <div className={styles.card}>
+      <span className={!isLarge ? styles.title : styles.large}>
         {getCapitalizedText(post.title)}
         {isLarge ? "." : ""}
       </span>
-      <div className="card__content">
-        <p className="card__content__body">
+      <div className={styles.content}>
+        <p className={styles.body}>
           {splitBody &&
             splitBody.map((paragraph) => {
               return (
-                <span className="card__content__body__parag">{`${getCapitalizedText(paragraph)}. `}</span>
+                <span
+                  className={styles.parag}
+                >{`${getCapitalizedText(paragraph)}. `}</span>
               );
             })}
         </p>
-        <button className="card__content__button" onClick={handleOnClick}>
+        <button className={styles.button} onClick={handleOnClick}>
           Read More <img src={rightArrow} />
         </button>
       </div>

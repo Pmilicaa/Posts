@@ -35,7 +35,7 @@
   color: #2c2c37;
   opacity: 1;
 }
-.comment-title {
+.commentTitle {
   text-align: left;
   font: normal normal 600 30px/35px Montserrat;
   letter-spacing: 0px;
@@ -43,19 +43,19 @@
   opacity: 1;
   margin-bottom: 3%;
 }
-.comment-body {
+.commentBody {
   background: #f7f7f8 0% 0% no-repeat padding-box;
   opacity: 1;
   margin-bottom: 3%;
   padding: 20px;
-  &__title {
+  .title {
     text-align: left;
     font: normal normal 600 20px/35px Montserrat;
     letter-spacing: 0px;
     color: #2c2c37;
     opacity: 1;
   }
-  &__desc {
+  .desc {
     text-align: left;
     font: normal normal normal 16px/25px Segoe UI;
     letter-spacing: 0px;
@@ -67,6 +67,16 @@
   display: flex;
   justify-content: space-between;
 }
-.padding-arr {
+.paddingArr {
   padding: 5px;
+}
+.button {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  color: #2c2c37;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: white;
+  cursor: pointer;
 }

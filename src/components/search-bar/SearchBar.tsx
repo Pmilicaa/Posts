@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import { usePostStore } from "../../store/posts-store";
 import { useUserStore } from "../../store/users-store";
-import "./SearchBar.scss";
+import styles from "./searchBar.module.scss";
 
-export const SearchBar: React.FC = () => {
+export const SearchBar = (): ReactElement => {
   const users = useUserStore((state) => state.users);
   const [value, setValue] = useState("");
   const setPostsByUserId = usePostStore((state) => state.setPostsByUserId);
@@ -23,34 +23,26 @@ export const SearchBar: React.FC = () => {
   };
 
   return (
-    <div className="search-bar">
-      <div className="search-bar__box">
+    <div className={styles.searchBar}>
+      <div className={styles.box}>
         <input
           name="search"
-          className="search-bar__box__input search-bar__box__input__text"
+          className={styles.input}
           placeholder="Search"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <div className="search-bar__box">
+      <div className={styles.box}>
         <select
           name="selectedFruit"
-          className={
-            value
-              ? "search-bar__box__input search-bar__box__input__selected"
-              : "search-bar__box__input"
-          }
+          className={styles.input}
           onChange={handleChange}
         >
           <option disabled selected hidden value="">
             Filter by author name
           </option>
           {users.map((user) => (
-            <option
-              className="search-bar__box__input__text"
-              value={user.id}
-              key={user.id}
-            >
+            <option className={styles.text} value={user.id} key={user.id}>
               {user.name}
             </option>
           ))}

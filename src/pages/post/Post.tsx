@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import "./PostPage.scss";
-import { Header } from "../components/header/Header";
-import { Post } from "../models/Post";
-import { postServiceInstance } from "../services/PostService";
+import { ReactElement, useEffect, useState } from "react";
+import styles from "./page.module.scss";
+import { Header } from "../../components/header/Header";
+import { Post } from "../../models/Post";
+import { postServiceInstance } from "../../services/PostService";
 import { useNavigate, useParams } from "react-router-dom";
-import { Comment } from "../models/Comment";
-import { getCapitalizedText, getSplitBody } from "../util/helpers";
-import { User } from "../models/User";
-import { userServiceInstance } from "../services/UserService";
-import rightArrow from "../assets/right-arrow.svg";
+import { Comment } from "../../models/Comment";
+import { getCapitalizedText, getSplitBody } from "../../util/helpers";
+import { User } from "../../models/User";
+import { userServiceInstance } from "../../services/UserService";
+import rightArrow from "../../assets/right-arrow.svg";
 
-export const PostPage: React.FC = () => {
+export const PostPage = (): ReactElement => {
   let { id } = useParams();
   const [postInfo, setPostInfo] = useState<Post>();
   const [comments, setComments] = useState<Comment[]>([]);
@@ -23,7 +23,6 @@ export const PostPage: React.FC = () => {
     if (user) {
       setAuthor(user);
     }
-    console.log(author, "authrorrr");
   };
 
   const getAddressDetails = (author: User): string => {
@@ -66,15 +65,15 @@ export const PostPage: React.FC = () => {
   return (
     <div>
       {postInfo && (
-        <div className="padding">
-          <div style={{ paddingBottom: "5%" }}>
+        <div className={styles.padding}>
+          <div>
             <Header title={`${postInfo.title}.`} style={{ color: "#2C2C37" }} />
           </div>
           <hr style={{ border: " 0.5px solid #F7F7F8" }} />
           <div>
             {splitBody.map((text, index) => {
               return (
-                <p key={index} className="text">
+                <p key={index} className={styles.text}>
                   {" "}
                   {`${getCapitalizedText(text)}. `} Lorem ipsum dolor sit, amet
                   consectetur adipisicing elit. Impedit ex quibusdam magnam
@@ -86,11 +85,8 @@ export const PostPage: React.FC = () => {
             })}
           </div>
           <hr style={{ border: "0.5px solid #F7F7F8" }} />
-          <div className="navigate1">
-            <button
-              className="card__content__button"
-              onClick={() => handleOnClick()}
-            >
+          <div className={styles.navigate1}>
+            <button className={styles.button} onClick={() => handleOnClick()}>
               <img
                 style={{
                   transform: "matrix(-1, 0, 0, -1, 0, 0)",
@@ -98,36 +94,38 @@ export const PostPage: React.FC = () => {
                 }}
                 src={rightArrow}
               />
-              <span className="padding-arr">Previous Article</span>
+              <span className={styles.paddingArr}>Previous Article</span>
             </button>
             <button
-              className="card__content__button"
+              className={styles.button}
               onClick={() => handleOnClick(true)}
             >
-              <span className="padding-arr">Next Article</span>{" "}
+              <span className={styles.paddingArr}>Next Article</span>{" "}
               <img src={rightArrow} />
             </button>
           </div>
-          <div className="navigate">
+          <div className={styles.navigate}>
             <div>
-              <div className="title">Author name</div>
-              <div className="desc">{author?.name}</div>
+              <div className={styles.title}>Author name</div>
+              <div className={styles.desc}>{author?.name}</div>
             </div>
             <div>
-              <div className="title">Address</div>
-              <div className="desc">{author && getAddressDetails(author)}</div>
+              <div className={styles.title}>Address</div>
+              <div className={styles.desc}>
+                {author && getAddressDetails(author)}
+              </div>
             </div>
           </div>
-          <div className="comments">
-            <div className="comment-title">Comments</div>
+          <div className={styles.comments}>
+            <div className={styles.commentTitle}>Comments</div>
             <div>
               {comments.map((comment: Comment) => {
                 return (
-                  <div key={comment.id} className="comment-body">
-                    <div className="comment-body__title">
+                  <div key={comment.id} className={styles.commentBody}>
+                    <div className={styles.title}>
                       {getCapitalizedText(comment.name)}
                     </div>
-                    <div className="comment-body__desc">{comment.body}</div>
+                    <div className={styles.desc}>{comment.body}</div>
                   </div>
                 );
               })}

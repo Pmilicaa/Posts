@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./PostsPage.scss";
-import { Header } from "../components/header/Header";
-import { usePostStore } from "../store/posts-store";
-import { SearchBar } from "../components/search-bar/SearchBar";
-import { PostGrid } from "../components/post-grid/PostGrid";
-import { Pagination } from "../components/pagination/Pagination";
+import styles from "./posts.module.scss";
+import { Header } from "../../components/header/Header";
+import { usePostStore } from "../../store/posts-store";
+import { SearchBar } from "../../components/search-bar/SearchBar";
+import { PostGrid } from "../../components/post-grid/PostGrid";
+import { Pagination } from "../../components/pagination/Pagination";
 
 export const PostsPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +35,7 @@ export const PostsPage: React.FC = () => {
           paddingLeft: " 10%",
         }}
       />
-      <div className="pages">
+      <div className={styles.container}>
         <SearchBar />
         <PostGrid data={filteredPosts} />
         <div
@@ -47,7 +47,7 @@ export const PostsPage: React.FC = () => {
         >
           {nPages && (
             <Pagination
-              nPages={nPages}
+              numberOfPages={nPages}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
             />
