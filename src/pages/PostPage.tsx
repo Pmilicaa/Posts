@@ -8,6 +8,7 @@ import { Comment } from "../models/Comment";
 import { getCapitalizedText, getSplitBody } from "../util/helpers";
 import { User } from "../models/User";
 import { userServiceInstance } from "../services/UserService";
+import rightArrow from "../assets/right-arrow.svg";
 
 export const PostPage: React.FC = () => {
   let { id } = useParams();
@@ -63,10 +64,11 @@ export const PostPage: React.FC = () => {
           <div style={{ paddingBottom: "5%" }}>
             <Header title={`${postInfo.title}.`} style={{ color: "#2C2C37" }} />
           </div>
+          <hr style={{ border: " 0.5px solid #F7F7F8" }} />
           <div>
             {splitBody.map((text, index) => {
               return (
-                <p key={index}>
+                <p key={index} className="text">
                   {" "}
                   {`${getCapitalizedText(text)}. `} Lorem ipsum dolor sit, amet
                   consectetur adipisicing elit. Impedit ex quibusdam magnam
@@ -77,28 +79,43 @@ export const PostPage: React.FC = () => {
               );
             })}
           </div>
-          <div className="navigate">
-            <div>left</div>
-            <div>right</div>
+          <hr style={{ border: " 0.5px solid #F7F7F8" }} />
+          <div className="navigate1">
+            <button className="card__content__button">
+              <img
+                style={{
+                  transform: "matrix(-1, 0, 0, -1, 0, 0)",
+                  paddingRight: "2px",
+                }}
+                src={rightArrow}
+              />
+              <span className="padding-arr">Previous Article</span>
+            </button>
+            <button className="card__content__button">
+              <span className="padding-arr">Next Article</span>{" "}
+              <img src={rightArrow} />
+            </button>
           </div>
           <div className="navigate">
             <div>
-              <div>Author name</div>
-              <div>{author?.name}</div>
+              <div className="title">Author name</div>
+              <div className="desc">{author?.name}</div>
             </div>
             <div>
-              <div>Address</div>
-              <div>{author && getAddressDetails(author)}</div>
+              <div className="title">Address</div>
+              <div className="desc">{author && getAddressDetails(author)}</div>
             </div>
           </div>
           <div className="comments">
-            <div>Comments</div>
+            <div className="comment-title">Comments</div>
             <div>
               {comments.map((comment: Comment) => {
                 return (
-                  <div key={comment.id}>
-                    <div> {comment.name}</div>
-                    <div>{comment.body}</div>
+                  <div key={comment.id} className="comment-body">
+                    <div className="comment-body__title">
+                      {getCapitalizedText(comment.name)}
+                    </div>
+                    <div className="comment-body__desc">{comment.body}</div>
                   </div>
                 );
               })}

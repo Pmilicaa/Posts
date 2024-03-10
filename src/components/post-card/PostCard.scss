@@ -1,3 +1,5 @@
+$montserratFontFamily: "Montserrat", sans-serif;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@
     text-align: left;
     color: #2c2c37;
     font-size: 18px;
-    font-family: "Montserrat", sans-serif;
+    font-family: $montserratFontFamily;
     font-weight: 600;
     font-style: normal;
     padding-bottom: 10px;
@@ -20,8 +22,7 @@
     &__large {
       font-size: 35px;
       font-weight: 600;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
+      font-family: $montserratFontFamily;
       font-style: normal;
       padding-bottom: 10px;
     }
@@ -38,11 +39,14 @@
       font-family: "Segoe UI", sans-serif;
       font-size: 16px;
       color: #6c6c78;
+      &__parag {
+        margin: 0;
+      }
     }
 
     &__button {
       text-align: left;
-      font-family: "Montserrat", sans-serif;
+      font-family: $montserratFontFamily;
       color: #2c2c37;
       border: none;
       font-size: 16px;

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  height: 25rem;
   &__title {
     margin: 0;
     text-align: left;
@@ -11,6 +10,5 @@
     font-weight: 400;
     font-style: normal;
     font-size: 70px;
-    padding-left: 10%;
   }
 }

@@ -28,7 +28,12 @@ export const PostsPage: React.FC = () => {
     <>
       <Header
         title={`Posts found: ${filteredPosts.length}`}
-        style={{ backgroundColor: "#184979", color: "white" }}
+        style={{
+          backgroundColor: "#184979",
+          color: "white",
+          height: "25rem",
+          paddingLeft: " 10%",
+        }}
       />
       <div className="pages">
         <SearchBar />

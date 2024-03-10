@@ -41,7 +41,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             })}
         </p>
         <button className="card__content__button" onClick={handleOnClick}>
-          Read More <img src={rightArrow}></img>
+          Read More <img src={rightArrow} />
         </button>
       </div>
     </div>
