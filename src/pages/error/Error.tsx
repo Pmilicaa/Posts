@@ -1,7 +1,8 @@
 import { useRouteError } from "react-router-dom";
 import "./error.scss";
+import { ReactElement } from "react";
 
-export const ErrorPage = () => {
+export const ErrorPage = (): ReactElement => {
   const error: any = useRouteError();
   console.error(error);
 

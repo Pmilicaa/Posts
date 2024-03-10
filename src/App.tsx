@@ -4,7 +4,8 @@ import { userServiceInstance } from "./services/UserService";
 import { usePostStore } from "./store/posts-store";
 import { useUserStore } from "./store/users-store";
 import { postServiceInstance } from "./services/PostService";
-import { Outlet } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./main";
 
 const App = (): ReactElement => {
   const setUsers = useUserStore((state) => state.setUsers);
@@ -26,11 +27,7 @@ const App = (): ReactElement => {
     fetchData();
   }, []);
 
-  return (
-    <>
-      <Outlet />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
