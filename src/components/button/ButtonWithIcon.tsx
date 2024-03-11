@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import styles from "./button.module.scss";
 
 interface ButtonProps {
   onClick: () => void;
@@ -34,7 +35,11 @@ export const ButtonWithIcon = ({
     );
   };
   return (
-    <button className={className} onClick={onClick} disabled={isDisabled}>
+    <button
+      className={`${styles.container} ${className}`}
+      onClick={onClick}
+      disabled={isDisabled}
+    >
       {renderIcon(icon.isIconRight)}
     </button>
   );

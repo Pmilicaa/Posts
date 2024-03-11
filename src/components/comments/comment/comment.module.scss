@@ -1,20 +1,24 @@
-.commentBody {
-  background: #f7f7f8 0% 0% no-repeat padding-box;
-  opacity: 1;
+@use "../../../assets/styles/global.scss" as *;
+
+.container {
+  background: var(--liquid-nitrogen);
+  box-sizing: padding-box;
   margin-bottom: 3%;
-  padding: 20px;
-  .title {
-    text-align: left;
-    font: normal normal 600 20px/35px Montserrat;
+  padding: $gap-20;
+  .commentTitle {
+    text-align: var(--text-al);
+    font-family: var(--font-family-montserrat);
+    font-size: $fs-l;
+    font-weight: $fw-600;
     letter-spacing: 0px;
-    color: #2c2c37;
-    opacity: 1;
+    color: var(--night-sky);
   }
-  .desc {
+  .commentBody {
     text-align: left;
-    font: normal normal normal 16px/25px Segoe UI;
+    font-family: var(--font-family-segoe);
+    font-weight: $fw-400;
+    font-size: $fs-m;
     letter-spacing: 0px;
-    color: #6c6c78;
-    opacity: 1;
+    color: var(--space-station);
   }
 }

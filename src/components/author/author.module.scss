@@ -1,19 +1,23 @@
 @use "../../assets/styles/global.scss" as *;
 
 $aligment-left: left;
+$padding: 20px 60px;
+
 .container {
   @include display-flex;
   @include justify-content-space-between;
-  background: #f7f7f8 0% 0% no-repeat padding-box;
-  padding: 20px 60px;
+  background: var(--liquid-nitrogen);
+  padding: $padding;
   .authorTitle {
-    text-align: $aligment-left;
-    font: normal normal normal 16px/25px Segoe UI;
+    text-align: var(--text-al);
+    font: normal normal normal 16px/25px var(--font-family-segoe);
     color: var(--space-station);
   }
   .authorDesc {
-    text-align: $aligment-left;
-    font: normal normal 600 20px/35px Montserrat;
+    text-align: var(--text-al);
+    font: normal normal 20px/35px;
+    font-weight: $fw-600;
+    font-family: var(--font-family-montserrat);
     color: var(--night-sky);
   }
 }

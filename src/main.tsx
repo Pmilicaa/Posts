@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import { PostsPage } from "./pages/posts/Posts";
 import { PostPage } from "./pages/post/Post";
-import { NotFoundPage } from "./pages/error/NotFound";
+import { NotFoundPage } from "./pages/not-found/NotFound";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

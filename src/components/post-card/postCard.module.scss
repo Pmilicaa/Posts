@@ -39,7 +39,7 @@ $card-max-width: 390px;
 
     .body {
       text-align: left;
-      font-family: "Segoe UI", sans-serif;
+      font-family: var(--font-family-segoe), sans-serif;
       font-size: 16px;
       color: var(--space-station);
     }

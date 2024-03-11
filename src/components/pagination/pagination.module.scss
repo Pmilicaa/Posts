@@ -6,7 +6,7 @@ $cursor-pointer: pointer;
   button {
     @include no-background;
     @include no-border;
-    font-family: "Segoe UI";
+    font-family: var(--font-family-segoe);
     text-align: var(--text-ar);
     color: var(--space-station);
     font-size: var(--font16);

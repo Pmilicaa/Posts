@@ -10,9 +10,11 @@ interface CommentProps {
 export const CommentComp = ({ comment }: CommentProps): ReactElement => {
   return (
     <div>
-      <div key={comment.id} className={styles.commentBody}>
-        <div className={styles.title}>{getCapitalizedText(comment.name)}</div>
-        <div className={styles.desc}>{comment.body}</div>
+      <div key={comment.id} className={styles.container}>
+        <div className={styles.commentTitle}>
+          {getCapitalizedText(comment.name)}
+        </div>
+        <div className={styles.commentBody}>{comment.body}</div>
       </div>
     </div>
   );

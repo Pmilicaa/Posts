@@ -9,7 +9,7 @@ interface CommentsProps {
 
 export const Comments = ({ comments }: CommentsProps): ReactElement => {
   return (
-    <div className={styles.comments}>
+    <div className={styles.container}>
       <div className={styles.commentTitle}>Comments</div>
       <div>
         {comments.map((comment: Comment) => {

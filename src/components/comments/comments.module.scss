@@ -1,14 +1,14 @@
 @use "../../assets/styles/global.scss" as *;
 
-.commentTitle {
-  text-align: left;
-  font: normal normal 600 30px/35px Montserrat;
-  letter-spacing: 0px;
-  color: #2c2c37;
-  opacity: 1;
-  margin-bottom: 3%;
+.container {
+  @include display-flex;
+  @include flex-direction-col;
 }
-.comments {
-  display: flex;
-  flex-direction: column;
+.commentTitle {
+  text-align: var(--text-al);
+  font-size: $fs-xl;
+  font-family: var(--font-family-montserrat);
+  font-weight: $fw-600;
+  color: var(--night-sky);
+  margin-bottom: 3%;
 }
