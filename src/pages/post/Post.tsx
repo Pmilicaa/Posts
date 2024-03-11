@@ -41,7 +41,7 @@ export const PostPage = (): ReactElement => {
   }, [postInfo, id]);
 
   const getAuthor = (postInfo: Post): void => {
-    const user = userServiceInstance.getUserById(postInfo.userId);
+    const user = userServiceInstance.getUserByIdFromStore(postInfo.userId);
     if (user) {
       setAuthor(user);
     }

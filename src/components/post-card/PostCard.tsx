@@ -1,9 +1,10 @@
 import { ReactElement, useEffect, useState } from "react";
 import styles from "./postCard.module.scss";
-import rightArrow from "../../assets/right-arrow.svg";
 import { Post } from "../../models/Post";
 import { useNavigate } from "react-router-dom";
 import { getCapitalizedText, getSplitBody } from "../../util/helpers";
+import { ButtonWithIcon } from "../button/ButtonWithIcon";
+import { rightArrowIcon } from "../../constants";
 
 interface PostCardProps {
   post: Post;
@@ -39,9 +40,12 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
               );
             })}
         </p>
-        <button className={styles.button} onClick={handleOnClick}>
-          Read More <img src={rightArrow} />
-        </button>
+        <ButtonWithIcon
+          label="Read More"
+          className={styles.button}
+          onClick={handleOnClick}
+          icon={rightArrowIcon}
+        />
       </div>
     </div>
   );

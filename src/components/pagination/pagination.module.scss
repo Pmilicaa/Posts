@@ -12,10 +12,36 @@ $cursor-pointer: pointer;
     font-size: var(--font16);
     cursor: $cursor-pointer;
   }
+
   .active {
     border-bottom: 2px solid var(--rich-electric-blue);
   }
+
   a {
-    cursor: $cursor-pointer;
+    padding: 0 $gap-10;
+
+    &.enabled {
+      cursor: $cursor-pointer;
+    }
+    &.disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  img {
+    &.enabled {
+      filter: invert(26%) sepia(79%) saturate(0%) hue-rotate(0deg)
+        brightness(80%) contrast(80%);
+    }
+
+    &.disabled {
+      filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(0deg)
+        brightness(100%) contrast(0%);
+    }
+
+    &.transform {
+      transform: matrix(-1, 0, 0, -1, 0, 0);
+    }
   }
 }
