@@ -1,0 +1,9 @@
+@use "../../../assets/styles/global.scss" as *;
+
+.colorBlack,
+select option {
+  color: var(--black);
+}
+.colorGray {
+  color: var(--old-world);
+}

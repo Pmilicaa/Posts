@@ -10,29 +10,3 @@
 .box {
   flex-grow: $fg;
 }
-input,
-select {
-  height: 46px;
-  background: var(--errigal-white);
-  border-radius: 5px;
-  @include width-100;
-  @include no-border;
-  padding-left: $gap-10;
-  color: var(--black);
-  &.text {
-    text-align: var(--text-ar);
-    font-family: var(--font-family-monserrat), sans-serif;
-    font-weight: $fw-400;
-    font-style: normal;
-  }
-}
-input::placeholder {
-  color: var(--old-world);
-}
-.colorBlack,
-select option {
-  color: var(--black);
-}
-.colorGray {
-  color: var(--old-world);
-}
