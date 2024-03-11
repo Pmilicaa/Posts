@@ -1,6 +1,5 @@
 import styles from "./pagination.module.scss";
 import nextIcon from "../../assets/next.svg";
-import prevIcon from "../../assets/prev.svg";
 import { Button } from "../button/Button";
 
 interface PaginationProps {
