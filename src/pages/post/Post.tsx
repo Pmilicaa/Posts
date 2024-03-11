@@ -9,8 +9,9 @@ import { getCapitalizedText, getSplitBody } from "../../util/helpers";
 import { User } from "../../models/User";
 import { userServiceInstance } from "../../services/UserService";
 import { ButtonWithIcon } from "../../components/button/ButtonWithIcon";
-import { leftArrowIcon, rightArrowIcon } from "../../constants";
+import { leftArrowIcon, lorem, rightArrowIcon } from "../../constants";
 import { Comments } from "../../components/comments/Comments";
+import { Author } from "../../components/author/Author";
 
 enum IndexEnum {
   PREV = "prev",
@@ -46,15 +47,6 @@ export const PostPage = (): ReactElement => {
     }
   };
 
-  const getAddressDetails = (author: User): string => {
-    if (author?.address) {
-      const { city, zipcode, street } = author.address;
-      return `${city}, ${zipcode}, ${street}`;
-    } else {
-      return "Address details not available";
-    }
-  };
-
   const fetchData = async () => {
     if (id) {
       const responseCommentData =
@@ -81,6 +73,14 @@ export const PostPage = (): ReactElement => {
     navigate(`/posts/${postIndex}`);
   };
 
+  const generateParagraph = (text: string, index: number): ReactElement => {
+    return (
+      <p key={index} className={styles.text}>
+        {`${getCapitalizedText(text)}. ${lorem}`}
+      </p>
+    );
+  };
+
   return (
     <div>
       {postInfo && (
@@ -90,17 +90,7 @@ export const PostPage = (): ReactElement => {
           </div>
           <hr style={{ border: " 0.5px solid #F7F7F8" }} />
           <div>
-            {splitBody.map((text, index) => {
-              return (
-                <p key={index} className={styles.text}>
-                  {`${getCapitalizedText(text)}. `} Lorem ipsum dolor sit, amet
-                  consectetur adipisicing elit. Impedit ex quibusdam magnam
-                  excepturi similique accusamus perspiciatis cum sed at eveniet
-                  laboriosam beatae placeat temporibus nulla quos ad iste, alias
-                  fuga?
-                </p>
-              );
-            })}
+            {splitBody.map((text, index) => generateParagraph(text, index))}
           </div>
           <hr style={{ border: "0.5px solid #F7F7F8" }} />
           <div className={styles.navigate1}>
@@ -119,18 +109,7 @@ export const PostPage = (): ReactElement => {
               label="Next Article"
             />
           </div>
-          <div className={styles.navigate}>
-            <div>
-              <div className={styles.title}>Author name</div>
-              <div className={styles.desc}>{author?.name}</div>
-            </div>
-            <div>
-              <div className={styles.title}>Address</div>
-              <div className={styles.desc}>
-                {author && getAddressDetails(author)}
-              </div>
-            </div>
-          </div>
+          {author && <Author author={author} />}
           <Comments comments={comments} />
         </div>
       )}

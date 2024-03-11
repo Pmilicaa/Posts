@@ -1,0 +1,19 @@
+@use "../../assets/styles/global.scss" as *;
+
+$aligment-left: left;
+.container {
+  @include display-flex;
+  @include justify-content-space-between;
+  background: #f7f7f8 0% 0% no-repeat padding-box;
+  padding: 20px 60px;
+  .authorTitle {
+    text-align: $aligment-left;
+    font: normal normal normal 16px/25px Segoe UI;
+    color: var(--space-station);
+  }
+  .authorDesc {
+    text-align: $aligment-left;
+    font: normal normal 600 20px/35px Montserrat;
+    color: var(--night-sky);
+  }
+}
