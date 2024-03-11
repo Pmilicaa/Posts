@@ -1,0 +1,61 @@
+@use "../../assets/styles/global.scss" as *;
+
+$card-height: 276px;
+$card-max-width: 390px;
+
+.container {
+  @include display-flex;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 2px 3px 43px var(--deep-purple);
+  border-radius: $gap-10;
+  padding: 20px 30px;
+  height: $card-height;
+
+  .postTitle {
+    text-align: (--text-al);
+    color: var(--night-sky);
+    font-size: 18px;
+    font-family: var(--font-family-smontserrat);
+    font-weight: $fw-600;
+    font-style: normal;
+    padding-bottom: $gap-10;
+    max-width: $card-max-width;
+  }
+
+  .largePostTitle {
+    font-size: $fs-xl;
+    font-weight: $fw-600;
+    font-family: var(--font-family-smontserrat);
+    font-style: normal;
+    padding-bottom: $gap-10;
+  }
+  .content {
+    @include display-flex;
+    @include flex-direction-col;
+    @include justify-content-space-between;
+    @include height-100;
+
+    .contentBody {
+      text-align: (--text-al);
+      font-family: var(--font-family-segoe), sans-serif;
+      font-size: $fs-m;
+      color: var(--space-station);
+    }
+
+    .bodyText {
+      @include no-margin;
+    }
+
+    button {
+      @include no-border;
+      @include cursor-pointer;
+      text-align: (--text-al);
+      font-family: var(--font-family-smontserrat);
+      color: var(--night-sky);
+      font-size: $fs-m;
+      font-weight: $fw-500;
+      background: var(--white);
+    }
+  }
+}

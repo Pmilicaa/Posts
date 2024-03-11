@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { ReactElement, useEffect } from "react";
 import "./App.css";
-import { PostsPage } from "./pages/PostsPage";
 import { userServiceInstance } from "./services/UserService";
 import { usePostStore } from "./store/posts-store";
 import { useUserStore } from "./store/users-store";
 import { postServiceInstance } from "./services/PostService";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./main";
 
-const App: React.FC = () => {
+const App = (): ReactElement => {
   const setUsers = useUserStore((state) => state.setUsers);
   const setPosts = usePostStore((state) => state.setPosts);
 
@@ -26,11 +27,7 @@ const App: React.FC = () => {
     fetchData();
   }, []);
 
-  return (
-    <>
-      <PostsPage />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

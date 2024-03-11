@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import "./PostsPage.scss";
-import { Header } from "../components/header/Header";
-import { usePostStore } from "../store/posts-store";
-import { SearchBar } from "../components/search-bar/SearchBar";
-import { PostGrid } from "../components/post-grid/PostGrid";
-import { Pagination } from "../components/pagination/Pagination";
+import { ReactElement, useEffect, useState } from "react";
+import styles from "./posts.module.scss";
+import { Header } from "../../components/header/Header";
+import { usePostStore } from "../../store/posts-store";
+import { SearchBar } from "../../components/search-bar/SearchBar";
+import { PostGrid } from "../../components/post-grid/PostGrid";
+import { Pagination } from "../../components/pagination/Pagination";
 
-export const PostsPage: React.FC = () => {
+export const PostsPage = (): ReactElement => {
   const [currentPage, setCurrentPage] = useState(1);
   const posts = usePostStore((state) => state.posts);
   const filteredPosts = usePostStore((state) => state.filteredPosts);
@@ -14,6 +14,7 @@ export const PostsPage: React.FC = () => {
   const setCurrentPagedPosts = usePostStore(
     (state) => state.setCurrentPagedPosts
   );
+
   const recordsPerPage = 10;
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -26,20 +27,17 @@ export const PostsPage: React.FC = () => {
 
   return (
     <>
-      <Header />
-      <div className="pages">
+      <Header
+        title={`Posts found: ${filteredPosts.length}`}
+        className="headerContainer"
+      />
+      <div className={styles.container}>
         <SearchBar />
         <PostGrid data={filteredPosts} />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            paddingTop: "20px",
-          }}
-        >
+        <div className={styles.paginationContainer}>
           {nPages && (
             <Pagination
-              nPages={nPages}
+              numberOfPages={nPages}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
             />

@@ -1,0 +1,15 @@
+@use "./assets/styles/global.scss" as *;
+
+body {
+  @include no-margin;
+  @include no-padding;
+}
+.headerColor {
+  color: var(--night-sky);
+}
+.headerContainer {
+  background: var(--honorable-blue);
+  color: var(--white);
+  height: 25rem;
+  padding-left: 10%;
+}

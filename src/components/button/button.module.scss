@@ -1,0 +1,16 @@
+@use "../../assets/styles/global.scss" as *;
+
+.container {
+  text-align: var(--text-al);
+  font-family: var(--font-family-montserrat), sans-serif;
+  color: var(--night-sky);
+  font-size: $fs-m;
+  font-weight: $fw-500;
+  background-color: var(--white);
+  @include cursor-pointer;
+  @include no-border;
+}
+
+button[disabled] {
+  color: var(--gray);
+}

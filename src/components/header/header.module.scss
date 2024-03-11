@@ -1,0 +1,13 @@
+@use "../../assets/styles/global.scss" as *;
+
+.header {
+  @include display-flex;
+  @include align-items-center;
+  font-size: $fs-xxl;
+  p {
+    margin: var(no-margin);
+    text-align: var(--text-ar);
+    font-family: var(var(--font-family-montserrat));
+    font-weight: $fw-400;
+  }
+}

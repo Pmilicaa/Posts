@@ -1,16 +1,16 @@
-import React from "react";
-import "./PostGrid.scss";
+import styles from "./postGrid.module.scss";
 import { PostCard } from "../post-card/PostCard";
 import { Post } from "../../models/Post";
+import { ReactElement } from "react";
 interface PostGridProps {
   data: Post[];
 }
 
-export const PostGrid: React.FC<PostGridProps> = ({ data }) => {
+export const PostGrid = ({ data }: PostGridProps): ReactElement => {
   return (
-    <div className="grid">
+    <div className={styles.grid}>
       {data.map((post, index) => (
-        <div className="grid__item" key={post.id}>
+        <div className={styles.card} key={post.id}>
           <PostCard post={post} isLarge={index === 0} />
         </div>
       ))}

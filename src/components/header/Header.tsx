@@ -1,12 +1,15 @@
-import "./Header.scss";
-import { usePostStore } from "../../store/posts-store";
+import { ReactElement } from "react";
+import { getCapitalizedText } from "../../util/helpers";
+import styles from "./header.module.scss";
 
-export const Header: React.FC = () => {
-  const filteredPosts = usePostStore((state) => state.filteredPosts);
-
+interface HeaderProps {
+  title: string;
+  className: string;
+}
+export const Header = ({ title, className }: HeaderProps): ReactElement => {
   return (
-    <div className="header">
-      <p className="header__title">Posts found: {filteredPosts.length}</p>
+    <div className={`${styles.header} ${className}`}>
+      <p>{getCapitalizedText(title)}</p>
     </div>
   );
 };

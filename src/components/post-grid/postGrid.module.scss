@@ -1,0 +1,25 @@
+@use "../../assets/styles/global.scss" as *;
+
+$card-min-width: 300px;
+.grid {
+  @include display-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: $gap-30;
+  padding-top: $gap-20;
+  .card {
+    padding: 20px 20px 20px 0px;
+    min-width: $card-min-width;
+  }
+  :first-child {
+    grid-column: span 2;
+  }
+
+  @include handheld {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $gap-10;
+    .card {
+      padding: $gap-10;
+    }
+  }
+}
