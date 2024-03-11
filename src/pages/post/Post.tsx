@@ -84,16 +84,16 @@ export const PostPage = (): ReactElement => {
   return (
     <div>
       {postInfo && (
-        <div className={styles.padding}>
+        <div className={styles.container}>
           <div>
             <Header title={`${postInfo.title}.`} style={{ color: "#2C2C37" }} />
           </div>
-          <hr style={{ border: " 0.5px solid #F7F7F8" }} />
+          <hr />
           <div>
             {splitBody.map((text, index) => generateParagraph(text, index))}
           </div>
-          <hr style={{ border: "0.5px solid #F7F7F8" }} />
-          <div className={styles.navigate1}>
+          <hr />
+          <div className={styles.buttonContainer}>
             <ButtonWithIcon
               icon={leftArrowIcon}
               className={styles.button}

@@ -8,17 +8,16 @@
   .commentTitle {
     text-align: var(--text-al);
     font-family: var(--font-family-montserrat);
-    font-size: $fs-l;
+    font-size: $fs-m;
     font-weight: $fw-600;
     letter-spacing: 0px;
     color: var(--night-sky);
   }
   .commentBody {
-    text-align: left;
+    text-align: var(--text-al);
     font-family: var(--font-family-segoe);
     font-weight: $fw-400;
-    font-size: $fs-m;
-    letter-spacing: 0px;
+    font-size: $fs-xs;
     color: var(--space-station);
   }
 }

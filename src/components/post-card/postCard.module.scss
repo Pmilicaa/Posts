@@ -1,6 +1,5 @@
 @use "../../assets/styles/global.scss" as *;
 
-$montserratFontFamily: "Montserrat", sans-serif;
 $card-height: 276px;
 $card-max-width: 390px;
 
@@ -13,21 +12,21 @@ $card-max-width: 390px;
   padding: 20px 30px;
   height: $card-height;
 
-  .title {
-    text-align: left;
+  .postTitle {
+    text-align: (--text-al);
     color: var(--night-sky);
     font-size: 18px;
-    font-family: $montserratFontFamily;
+    font-family: var(--font-family-smontserrat);
     font-weight: $fw-600;
     font-style: normal;
     padding-bottom: $gap-10;
     max-width: $card-max-width;
   }
 
-  .lgTitle {
-    font-size: 35px;
+  .largePostTitle {
+    font-size: $fs-xl;
     font-weight: $fw-600;
-    font-family: $montserratFontFamily;
+    font-family: var(--font-family-smontserrat);
     font-style: normal;
     padding-bottom: $gap-10;
   }
@@ -37,10 +36,10 @@ $card-max-width: 390px;
     @include justify-content-space-between;
     @include height-100;
 
-    .body {
-      text-align: left;
+    .contentBody {
+      text-align: (--text-al);
       font-family: var(--font-family-segoe), sans-serif;
-      font-size: 16px;
+      font-size: $fs-m;
       color: var(--space-station);
     }
 
@@ -51,10 +50,10 @@ $card-max-width: 390px;
     button {
       @include no-border;
       @include cursor-pointer;
-      text-align: left;
-      font-family: $montserratFontFamily;
+      text-align: (--text-al);
+      font-family: var(--font-family-smontserrat);
       color: var(--night-sky);
-      font-size: 16px;
+      font-size: $fs-m;
       font-weight: $fw-500;
       background: var(--white);
     }

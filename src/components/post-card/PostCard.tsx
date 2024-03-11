@@ -24,12 +24,12 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
 
   return (
     <div className={styles.container}>
-      <span className={!isLarge ? styles.title : styles.lgTitle}>
+      <span className={!isLarge ? styles.postTitle : styles.largePostTitle}>
         {getCapitalizedText(post.title)}
         {isLarge ? "." : ""}
       </span>
       <div className={styles.content}>
-        <p className={styles.body}>
+        <p className={styles.contentBody}>
           {splitBody &&
             splitBody.map((paragraph) => {
               return (
