@@ -24,10 +24,10 @@ export const ButtonWithIcon = ({
       <>
         {isIconRight ? (
           <>
-            <span>{label}</span>{" "}
+            <span>{label}</span>
             <img
               style={icon.styles}
-              className={isDisabled ? styles.iconDisabled : ""}
+              className={isDisabled ? styles.disabled : ""}
               src={icon.src}
             />
           </>
@@ -36,7 +36,7 @@ export const ButtonWithIcon = ({
             <img
               style={icon.styles}
               src={icon.src}
-              className={isDisabled ? styles.iconDisabled : ""}
+              className={isDisabled ? styles.disabled : ""}
             />{" "}
             <span>{label}</span>
           </>
