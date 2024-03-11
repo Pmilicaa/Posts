@@ -4,11 +4,15 @@
   text-align: var(--text-al);
   font-family: var(--font-family-montserrat), sans-serif;
   color: var(--night-sky);
-  font-size: $fs-m;
+  font-size: $fs-s;
   font-weight: $fw-500;
   background-color: var(--white);
   @include cursor-pointer;
   @include no-border;
+  .iconDisabled {
+    filter: invert(48%) sepia(79%) saturate(0%) hue-rotate(0deg)
+      brightness(100%) contrast(0%);
+  }
 }
 
 button[disabled] {
