@@ -25,8 +25,16 @@ export const Pagination = ({
 
   return (
     <div className={styles.container}>
-      <a className={styles.pointer} onClick={goToPrevPage}>
-        <img src={prevIcon} />
+      <a
+        className={currentPage === 1 ? styles.disabled : styles.enabled}
+        onClick={goToPrevPage}
+      >
+        <img
+          src={nextIcon}
+          className={`${styles.transform} ${
+            currentPage === 1 ? styles.disabled : styles.enabled
+          }`}
+        />
       </a>
       {pageNumbers.map((pgNumber) => (
         <div
@@ -40,8 +48,18 @@ export const Pagination = ({
           />
         </div>
       ))}
-      <a className={styles.pointer} onClick={goToNextPage}>
-        <img src={nextIcon} />
+      <a
+        className={
+          currentPage === numberOfPages ? styles.disabled : styles.enabled
+        }
+        onClick={goToNextPage}
+      >
+        <img
+          src={nextIcon}
+          className={
+            currentPage === numberOfPages ? styles.disabled : styles.enabled
+          }
+        />
       </a>
     </div>
   );
