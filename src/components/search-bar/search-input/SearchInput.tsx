@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import styles from "./search-input.module.scss";
 import { usePostStore } from "../../../store/posts-store";
 
 export const SearchInput = (): ReactElement => {
