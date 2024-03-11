@@ -1,0 +1,21 @@
+@use "../../assets/styles/global.scss" as *;
+
+$cursor-pointer: pointer;
+.container {
+  @include flex-center-container;
+  button {
+    @include no-background;
+    @include no-border;
+    font-family: var(--font-family-segoe);
+    text-align: var(--text-ar);
+    color: var(--space-station);
+    font-size: var(--font16);
+    cursor: $cursor-pointer;
+  }
+  .active {
+    border-bottom: 2px solid var(--rich-electric-blue);
+  }
+  a {
+    cursor: $cursor-pointer;
+  }
+}

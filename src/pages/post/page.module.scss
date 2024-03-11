@@ -1,0 +1,16 @@
+@use "../../assets/styles/global.scss" as *;
+
+.container {
+  padding: 5% 20%;
+  hr {
+    border: 0.5px solid var(--liquid-nitrogen);
+  }
+  .buttonContainer {
+    @include display-flex;
+    @include justify-content-space-between;
+  }
+}
+
+.container > div {
+  margin: 6%;
+}

@@ -1,0 +1,14 @@
+@use "../../assets/styles/global.scss" as *;
+
+.container {
+  @include display-flex;
+  @include flex-direction-col;
+}
+.commentTitle {
+  text-align: var(--text-al);
+  font-size: $fs-xl;
+  font-family: var(--font-family-montserrat);
+  font-weight: $fw-600;
+  color: var(--night-sky);
+  margin-bottom: 3%;
+}

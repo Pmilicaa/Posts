@@ -1,0 +1,23 @@
+@use "../../../assets/styles/global.scss" as *;
+
+.container {
+  background: var(--liquid-nitrogen);
+  box-sizing: padding-box;
+  margin-bottom: 3%;
+  padding: $gap-20;
+  .commentTitle {
+    text-align: var(--text-al);
+    font-family: var(--font-family-montserrat);
+    font-size: $fs-m;
+    font-weight: $fw-600;
+    letter-spacing: 0px;
+    color: var(--night-sky);
+  }
+  .commentBody {
+    text-align: var(--text-al);
+    font-family: var(--font-family-segoe);
+    font-weight: $fw-400;
+    font-size: $fs-xs;
+    color: var(--space-station);
+  }
+}

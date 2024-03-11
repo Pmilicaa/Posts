@@ -1,0 +1,15 @@
+@use "../../assets/styles/global.scss" as *;
+
+$posts-breaking-point: 1354px;
+
+.container {
+  padding: 6rem 11rem;
+  @include responsiveQuery($posts-breaking-point) {
+    padding: 3rem 2rem;
+  }
+  .paginationContainer {
+    @include display-flex;
+    @include justify-content-center;
+    padding-top: $gap-20;
+  }
+}

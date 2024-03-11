@@ -1,0 +1,7 @@
+@use "../../assets/styles/global.scss" as *;
+
+.error-page {
+  @include display-flex;
+  @include flex-direction-col;
+  @include align-items-center;
+}

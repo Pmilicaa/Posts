@@ -1,0 +1,23 @@
+@use "../../assets/styles/global.scss" as *;
+
+$aligment-left: left;
+$padding: 20px 60px;
+
+.container {
+  @include display-flex;
+  @include justify-content-space-between;
+  background: var(--liquid-nitrogen);
+  padding: $padding;
+  .authorTitle {
+    text-align: var(--text-al);
+    font: normal normal normal 16px/25px var(--font-family-segoe);
+    color: var(--space-station);
+  }
+  .authorDesc {
+    text-align: var(--text-al);
+    font: normal normal 20px/35px;
+    font-weight: $fw-600;
+    font-family: var(--font-family-montserrat);
+    color: var(--night-sky);
+  }
+}

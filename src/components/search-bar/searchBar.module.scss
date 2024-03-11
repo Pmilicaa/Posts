@@ -1,0 +1,28 @@
+@use "../../assets/styles/global.scss" as *;
+
+.searchBar {
+  background: var(--liquid-nitrogen);
+  border-radius: $gap-10;
+  @include display-flex;
+  gap: $gap-40;
+  padding: 15px;
+}
+.box {
+  flex-grow: $fg;
+}
+input,
+select {
+  height: 46px;
+  background: var(--errigal-white);
+  border-radius: 5px;
+  @include width-100;
+  @include no-border;
+  padding-left: $gap-10;
+  &.text {
+    text-align: var(--text-ar);
+    font-family: "Montserrat", sans-serif;
+    font-weight: $fw-400;
+    font-style: normal;
+    color: var(--old-world);
+  }
+}
