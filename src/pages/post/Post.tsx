@@ -16,13 +16,26 @@ enum IndexEnum {
 }
 
 export const PostPage = (): ReactElement => {
-  let { id } = useParams();
   const [postInfo, setPostInfo] = useState<Post>();
   const [comments, setComments] = useState<Comment[]>([]);
   const [splitBody, setSplitBody] = useState<string[]>([]);
   const [author, setAuthor] = useState<User>();
   const [index, setIndex] = useState<any>();
+  let { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setPrevNextIndex();
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+    if (postInfo) {
+      const bodyParts = getSplitBody(postInfo.body);
+      setSplitBody(bodyParts);
+      setPrevNextIndex();
+    }
+  }, [postInfo, id]);
 
   const getAuthor = (postInfo: Post): void => {
     const user = userServiceInstance.getUserById(postInfo.userId);
@@ -59,19 +72,6 @@ export const PostPage = (): ReactElement => {
     const indexVal = id && postServiceInstance.getPrevAndNextIndex(Number(id));
     setIndex(indexVal);
   };
-
-  useEffect(() => {
-    setPrevNextIndex();
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-    if (postInfo) {
-      const bodyParts = getSplitBody(postInfo.body);
-      setSplitBody(bodyParts);
-      setPrevNextIndex();
-    }
-  }, [postInfo, id]);
 
   const handleOnClick = (type: string): void => {
     const postIndex =

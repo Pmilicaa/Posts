@@ -1,0 +1,52 @@
+//grid
+$gaps: (
+  10: 10px,
+  20: 20px,
+  30: 30px,
+  40: 40px,
+);
+$gap-10: map-get($gaps, 10);
+$gap-20: map-get($gaps, 20);
+$gap-30: map-get($gaps, 30);
+$gap-40: map-get($gaps, 40);
+
+@mixin display-grid {
+  display: grid;
+}
+//flex
+@mixin display-flex {
+  display: flex;
+}
+
+@mixin flex-direction-col {
+  flex-direction: column;
+}
+
+@mixin justify-content-center {
+  justify-content: center;
+}
+
+@mixin justify-content-space-between {
+  justify-content: space-between;
+}
+
+@mixin align-items-center {
+  align-items: center;
+}
+
+@mixin cursor-pointer {
+  cursor: pointer;
+}
+
+//flex-grow
+$fg: 1;
+
+@mixin flex-center-container {
+  @include display-flex;
+  @include justify-content-center;
+  @include align-items-center;
+}
+
+:root {
+  --text-ar: right;
+}

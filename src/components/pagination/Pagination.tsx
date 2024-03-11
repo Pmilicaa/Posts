@@ -24,7 +24,7 @@ export const Pagination = ({
 
   return (
     <div className={styles.container}>
-      <a className={styles.icons} onClick={goToPrevPage}>
+      <a className={styles.pointer} onClick={goToPrevPage}>
         <img src={prevIcon} />
       </a>
       {pageNumbers.map((pgNumber) => (
@@ -40,7 +40,7 @@ export const Pagination = ({
           </button>
         </div>
       ))}
-      <a className={styles.icons} onClick={goToNextPage} href="#">
+      <a className={styles.pointer} onClick={goToNextPage}>
         <img src={nextIcon} />
       </a>
     </div>

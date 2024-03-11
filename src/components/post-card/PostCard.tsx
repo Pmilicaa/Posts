@@ -10,8 +10,8 @@ interface PostCardProps {
   isLarge?: boolean;
 }
 export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
-  const navigate = useNavigate();
   const [splitBody, setSplitBody] = useState<string[]>();
+  const navigate = useNavigate();
 
   const handleOnClick = () => {
     navigate(`/posts/${post.id}`);
@@ -23,8 +23,8 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
   }, []);
 
   return (
-    <div className={styles.card}>
-      <span className={!isLarge ? styles.title : styles.large}>
+    <div className={styles.container}>
+      <span className={!isLarge ? styles.title : styles.lgTitle}>
         {getCapitalizedText(post.title)}
         {isLarge ? "." : ""}
       </span>
@@ -34,7 +34,7 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
             splitBody.map((paragraph) => {
               return (
                 <span
-                  className={styles.parag}
+                  className={styles.bodyText}
                 >{`${getCapitalizedText(paragraph)}. `}</span>
               );
             })}

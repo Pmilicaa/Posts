@@ -1,55 +1,62 @@
-$montserratFontFamily: "Montserrat", sans-serif;
+@use "../../assets/styles/global.scss" as *;
 
-.card {
-  display: flex;
+$montserratFontFamily: "Montserrat", sans-serif;
+$card-height: 276px;
+$card-max-width: 390px;
+
+.container {
+  @include display-flex;
   flex-direction: column;
-  height: 276px;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 2px 3px 43px #566a8a14;
-  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 2px 3px 43px var(--deep-purple);
+  border-radius: $gap-10;
   padding: 20px 30px;
+  height: $card-height;
 
   .title {
     text-align: left;
-    color: #2c2c37;
+    color: var(--night-sky);
     font-size: 18px;
     font-family: $montserratFontFamily;
-    font-weight: 600;
+    font-weight: $fw-600;
     font-style: normal;
-    padding-bottom: 10px;
-    max-width: 390px;
+    padding-bottom: $gap-10;
+    max-width: $card-max-width;
   }
-  .large {
+
+  .lgTitle {
     font-size: 35px;
-    font-weight: 600;
+    font-weight: $fw-600;
     font-family: $montserratFontFamily;
     font-style: normal;
-    padding-bottom: 10px;
+    padding-bottom: $gap-10;
   }
   .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    @include display-flex;
+    @include flex-direction-col;
+    @include justify-content-space-between;
+    @include height-100;
 
     .body {
       text-align: left;
       font-family: "Segoe UI", sans-serif;
       font-size: 16px;
-      color: #6c6c78;
+      color: var(--space-station);
     }
-    .parag {
-      margin: 0;
+
+    .bodyText {
+      @include no-margin;
     }
-    .button {
+
+    button {
+      @include no-border;
+      @include cursor-pointer;
       text-align: left;
       font-family: $montserratFontFamily;
-      color: #2c2c37;
-      border: none;
+      color: var(--night-sky);
       font-size: 16px;
-      font-weight: 500;
-      background-color: white;
-      cursor: pointer;
+      font-weight: $fw-500;
+      background: var(--white);
     }
   }
 }

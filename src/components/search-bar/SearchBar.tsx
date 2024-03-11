@@ -1,23 +1,21 @@
-import { ReactElement, useState } from "react";
+import { ChangeEventHandler, ReactElement } from "react";
 import { usePostStore } from "../../store/posts-store";
 import { useUserStore } from "../../store/users-store";
 import styles from "./searchBar.module.scss";
 
 export const SearchBar = (): ReactElement => {
   const users = useUserStore((state) => state.users);
-  const [value, setValue] = useState("");
   const setPostsByUserId = usePostStore((state) => state.setPostsByUserId);
   const currentPagedPosts = usePostStore((state) => state.currentPagedPosts);
   const setFilteredPosts = usePostStore((state) => state.setFilteredPosts);
 
-  const handleChange = (e: any): void => {
+  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e): void => {
     setPostsByUserId(e.target.value as string);
-    setValue(e.target.value);
   };
 
-  const setSearchQuery = (e: any): void => {
+  const setSearchQuery = (value: string): void => {
     const posts = currentPagedPosts.filter((post) => {
-      return post.title.includes(e);
+      return post.title.includes(value);
     });
     setFilteredPosts(posts);
   };
@@ -27,18 +25,13 @@ export const SearchBar = (): ReactElement => {
       <div className={styles.box}>
         <input
           name="search"
-          className={styles.input}
           placeholder="Search"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
       <div className={styles.box}>
-        <select
-          name="selectedFruit"
-          className={styles.input}
-          onChange={handleChange}
-        >
-          <option disabled selected hidden value="">
+        <select onChange={handleChange}>
+          <option disabled selected hidden>
             Filter by author name
           </option>
           {users.map((user) => (

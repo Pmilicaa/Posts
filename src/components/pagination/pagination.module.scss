@@ -1,25 +1,21 @@
 @use "../../assets/styles/global.scss" as *;
 
+$cursor-pointer: pointer;
 .container {
-  @include flexContainer;
-  width: 216px;
-  height: 27px;
-}
-
-.number {
-  text-align: left;
-  border: none;
-  font-family: "Segoe UI";
-  color: #6c6c78;
-  background: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.icons {
-  display: flex;
-}
-
-.active {
-  border-bottom: 2px solid #1298d2;
+  @include flex-center-container;
+  button {
+    @include no-background;
+    @include no-border;
+    font-family: "Segoe UI";
+    text-align: var(--text-ar);
+    color: var(--space-station);
+    font-size: var(--font16);
+    cursor: $cursor-pointer;
+  }
+  .active {
+    border-bottom: 2px solid var(--rich-electric-blue);
+  }
+  a {
+    cursor: $cursor-pointer;
+  }
 }

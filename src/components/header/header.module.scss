@@ -1,14 +1,13 @@
 @use "../../assets/styles/global.scss" as *;
 
 .header {
-  @include flexContainer;
-  font-size: var(--font70);
+  @include display-flex;
+  @include align-items-center;
+  font-size: $fs-xl;
   p {
-    margin: 0;
-    text-align: left;
+    margin: var(no-margin);
+    text-align: var(--text-ar);
     font-family: var(--monserat);
-    font-optical-sizing: auto;
-    font-weight: var(--fontWeight400);
-    font-style: normal;
+    font-weight: $fw-400;
   }
 }

@@ -2,9 +2,4 @@
 @forward "./variables/fonts.scss";
 @forward "./variables/responsive.scss";
 @forward "./variables/utils.scss";
-
-@mixin flexContainer {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
+@forward "./variables/styles.scss";

@@ -1,27 +1,28 @@
 @use "../../assets/styles/global.scss" as *;
 
 .searchBar {
-  background: #f7f7f8;
-  border-radius: 10px;
-  display: flex;
-  gap: 40px;
+  background: var(--liquid-nitrogen);
+  border-radius: $gap-10;
+  @include display-flex;
+  gap: $gap-40;
   padding: 15px;
 }
 .box {
-  flex-grow: 1;
+  flex-grow: $fg;
 }
-.input {
+input,
+select {
   height: 46px;
-  background: #efeff2;
+  background: var(--errigal-white);
   border-radius: 5px;
-  width: 100%;
-  padding-left: 10px;
-  border: none;
+  @include width-100;
+  @include no-border;
+  padding-left: $gap-10;
   &.text {
-    text-align: left;
+    text-align: var(--text-ar);
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-weight: $fw-400;
     font-style: normal;
-    color: #b4b7d4;
+    color: var(--old-world);
   }
 }
