@@ -1,6 +1,7 @@
 import styles from "./pagination.module.scss";
 import nextIcon from "../../assets/next.svg";
 import prevIcon from "../../assets/prev.svg";
+import { Button } from "../button/Button";
 
 interface PaginationProps {
   currentPage: number;
@@ -32,12 +33,11 @@ export const Pagination = ({
           key={pgNumber}
           className={`${currentPage === pgNumber ? styles.active : ""} `}
         >
-          <button
-            onClick={() => setCurrentPage(pgNumber)}
+          <Button
             className={styles.number}
-          >
-            {pgNumber}
-          </button>
+            onClick={() => setCurrentPage(pgNumber)}
+            label={pgNumber.toString()}
+          />
         </div>
       ))}
       <a className={styles.pointer} onClick={goToNextPage}>

@@ -8,7 +8,8 @@ import { Comment } from "../../models/Comment";
 import { getCapitalizedText, getSplitBody } from "../../util/helpers";
 import { User } from "../../models/User";
 import { userServiceInstance } from "../../services/UserService";
-import rightArrow from "../../assets/right-arrow.svg";
+import { ButtonWithIcon } from "../../components/button/ButtonWithIcon";
+import { leftArrowIcon, rightArrowIcon } from "../../constants";
 
 enum IndexEnum {
   PREV = "prev",
@@ -91,7 +92,6 @@ export const PostPage = (): ReactElement => {
             {splitBody.map((text, index) => {
               return (
                 <p key={index} className={styles.text}>
-                  {" "}
                   {`${getCapitalizedText(text)}. `} Lorem ipsum dolor sit, amet
                   consectetur adipisicing elit. Impedit ex quibusdam magnam
                   excepturi similique accusamus perspiciatis cum sed at eveniet
@@ -103,28 +103,20 @@ export const PostPage = (): ReactElement => {
           </div>
           <hr style={{ border: "0.5px solid #F7F7F8" }} />
           <div className={styles.navigate1}>
-            <button
+            <ButtonWithIcon
+              icon={leftArrowIcon}
               className={styles.button}
               onClick={() => handleOnClick(IndexEnum.PREV)}
-              disabled={Number(postInfo.id) === 1}
-            >
-              <img
-                style={{
-                  transform: "matrix(-1, 0, 0, -1, 0, 0)",
-                  paddingRight: "2px",
-                }}
-                src={rightArrow}
-              />
-              <span className={styles.paddingArr}>Previous Article</span>
-            </button>
-            <button
+              isDisabled={Number(postInfo.id) === 1}
+              label="Previous Article"
+            />
+            <ButtonWithIcon
+              icon={rightArrowIcon}
               className={styles.button}
               onClick={() => handleOnClick(IndexEnum.NEXT)}
-              disabled={Number(postInfo.id) + 1 > index?.nPages}
-            >
-              <span className={styles.paddingArr}>Next Article</span>
-              <img src={rightArrow} />
-            </button>
+              isDisabled={Number(postInfo.id) + 1 > index?.nPages}
+              label="Next Article"
+            />
           </div>
           <div className={styles.navigate}>
             <div>
