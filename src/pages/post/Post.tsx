@@ -86,7 +86,7 @@ export const PostPage = (): ReactElement => {
       {postInfo && (
         <div className={styles.container}>
           <div>
-            <Header title={`${postInfo.title}.`} style={{ color: "#2C2C37" }} />
+            <Header title={`${postInfo.title}.`} className="headerColor" />
           </div>
           <hr />
           <div>
@@ -96,14 +96,12 @@ export const PostPage = (): ReactElement => {
           <div className={styles.buttonContainer}>
             <ButtonWithIcon
               icon={leftArrowIcon}
-              className={styles.button}
               onClick={() => handleOnClick(IndexEnum.PREV)}
               isDisabled={Number(postInfo.id) === 1}
               label="Previous Article"
             />
             <ButtonWithIcon
               icon={rightArrowIcon}
-              className={styles.button}
               onClick={() => handleOnClick(IndexEnum.NEXT)}
               isDisabled={Number(postInfo.id) + 1 > index?.nPages}
               label="Next Article"

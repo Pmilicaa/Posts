@@ -4,7 +4,7 @@ import styles from "./button.module.scss";
 interface ButtonProps {
   onClick: () => void;
   label: string;
-  className: string;
+  className?: string;
   isDisabled?: boolean;
   icon: {
     src: string;

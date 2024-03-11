@@ -4,11 +4,11 @@ import styles from "./header.module.scss";
 
 interface HeaderProps {
   title: string;
-  style: object;
+  className: string;
 }
-export const Header = ({ title, style }: HeaderProps): ReactElement => {
+export const Header = ({ title, className }: HeaderProps): ReactElement => {
   return (
-    <div className={styles.header} style={style}>
+    <div className={`${styles.header} ${className}`}>
       <p>{getCapitalizedText(title)}</p>
     </div>
   );

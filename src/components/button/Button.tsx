@@ -3,7 +3,7 @@ import { ReactElement } from "react";
 interface ButtonProps {
   onClick: () => void;
   label?: string;
-  className: string;
+  className?: string;
   isDisabled?: boolean;
 }
 export const Button = ({

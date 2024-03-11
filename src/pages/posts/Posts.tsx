@@ -1,6 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
 import styles from "./posts.module.scss";
-import { HeaderStyle } from "./styles";
 import { Header } from "../../components/header/Header";
 import { usePostStore } from "../../store/posts-store";
 import { SearchBar } from "../../components/search-bar/SearchBar";
@@ -30,7 +29,7 @@ export const PostsPage = (): ReactElement => {
     <>
       <Header
         title={`Posts found: ${filteredPosts.length}`}
-        style={HeaderStyle}
+        className="headerContainer"
       />
       <div className={styles.container}>
         <SearchBar />
