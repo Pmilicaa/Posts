@@ -1,0 +1,20 @@
+.commentBody {
+  background: #f7f7f8 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-bottom: 3%;
+  padding: 20px;
+  .title {
+    text-align: left;
+    font: normal normal 600 20px/35px Montserrat;
+    letter-spacing: 0px;
+    color: #2c2c37;
+    opacity: 1;
+  }
+  .desc {
+    text-align: left;
+    font: normal normal normal 16px/25px Segoe UI;
+    letter-spacing: 0px;
+    color: #6c6c78;
+    opacity: 1;
+  }
+}

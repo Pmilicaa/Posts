@@ -10,6 +10,7 @@ import { User } from "../../models/User";
 import { userServiceInstance } from "../../services/UserService";
 import { ButtonWithIcon } from "../../components/button/ButtonWithIcon";
 import { leftArrowIcon, rightArrowIcon } from "../../constants";
+import { Comments } from "../../components/comments/Comments";
 
 enum IndexEnum {
   PREV = "prev",
@@ -130,21 +131,7 @@ export const PostPage = (): ReactElement => {
               </div>
             </div>
           </div>
-          <div className={styles.comments}>
-            <div className={styles.commentTitle}>Comments</div>
-            <div>
-              {comments.map((comment: Comment) => {
-                return (
-                  <div key={comment.id} className={styles.commentBody}>
-                    <div className={styles.title}>
-                      {getCapitalizedText(comment.name)}
-                    </div>
-                    <div className={styles.desc}>{comment.body}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <Comments comments={comments} />
         </div>
       )}
     </div>

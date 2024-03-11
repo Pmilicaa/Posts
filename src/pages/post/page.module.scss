@@ -4,10 +4,6 @@
   background: #f7f7f8 0% 0% no-repeat padding-box;
   padding: 20px 60px;
 }
-.comments {
-  display: flex;
-  flex-direction: column;
-}
 .padding {
   padding: 5% 20%;
 }
@@ -35,34 +31,7 @@
   color: #2c2c37;
   opacity: 1;
 }
-.commentTitle {
-  text-align: left;
-  font: normal normal 600 30px/35px Montserrat;
-  letter-spacing: 0px;
-  color: #2c2c37;
-  opacity: 1;
-  margin-bottom: 3%;
-}
-.commentBody {
-  background: #f7f7f8 0% 0% no-repeat padding-box;
-  opacity: 1;
-  margin-bottom: 3%;
-  padding: 20px;
-  .title {
-    text-align: left;
-    font: normal normal 600 20px/35px Montserrat;
-    letter-spacing: 0px;
-    color: #2c2c37;
-    opacity: 1;
-  }
-  .desc {
-    text-align: left;
-    font: normal normal normal 16px/25px Segoe UI;
-    letter-spacing: 0px;
-    color: #6c6c78;
-    opacity: 1;
-  }
-}
+
 .navigate1 {
   display: flex;
   justify-content: space-between;
