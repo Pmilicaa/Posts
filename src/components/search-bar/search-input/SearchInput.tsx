@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { usePostStore } from "../../../store/posts-store";
+import styles from "./search-input.module.scss";
 
 export const SearchInput = (): ReactElement => {
   const setFilteredPosts = usePostStore((state) => state.setFilteredPosts);
@@ -18,6 +19,7 @@ export const SearchInput = (): ReactElement => {
     <input
       name="search"
       placeholder="Search"
+      className={styles.input}
       onChange={(e) => setSearchQuery(e.target.value)}
     />
   );
