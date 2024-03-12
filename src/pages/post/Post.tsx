@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./page.module.scss";
 import { Header } from "../../components/header/Header";
 import { Post } from "../../models/Post";
@@ -78,7 +78,7 @@ export const PostPage = (): ReactElement => {
 
   const generateParagraph = (text: string): ReactElement => {
     return (
-      <p key={uuid.v4()} className={styles.paragraphContainer}>
+      <p key={uuidv4()} className={styles.paragraphContainer}>
         {`${getCapitalizedText(text)}. ${lorem}`}
       </p>
     );

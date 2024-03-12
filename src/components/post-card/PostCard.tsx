@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { getCapitalizedText, getSplitBody } from "../../util/helpers";
 import { ButtonWithIcon } from "../button/ButtonWithIcon";
 import { rightArrowIcon } from "../../constants";
-import uuid from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 interface PostCardProps {
   post: Post;
@@ -36,7 +36,7 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
             splitBody.map((paragraph) => {
               return (
                 <span
-                  key={uuid.v4()}
+                  key={uuidv4()}
                   className={styles.bodyText}
                 >{`${getCapitalizedText(paragraph)}. `}</span>
               );

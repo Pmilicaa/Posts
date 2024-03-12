@@ -7,7 +7,7 @@ import { postServiceInstance } from "../../../services/PostService";
 export const AuthorFilter = (): ReactElement => {
   const [value, setValue] = useState<string>("");
   const users = useUserStore((state) => state.users);
-  const setFilteredPosts = usePostStore((state) => state.setFilteredPosts);
+  const setAvailablePosts = usePostStore((state) => state.setAvailablePosts);
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = async (
     e
@@ -21,7 +21,7 @@ export const AuthorFilter = (): ReactElement => {
       const responseCommentData =
         await postServiceInstance.getFilteredPostsByUserId(userId);
       if (responseCommentData) {
-        setFilteredPosts(responseCommentData);
+        setAvailablePosts(responseCommentData);
       }
     }
   };

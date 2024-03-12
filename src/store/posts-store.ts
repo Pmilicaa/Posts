@@ -3,27 +3,24 @@ import { Post } from "../models/Post";
 
 type PostsStore = {
   posts: Post[];
-  currentPagedPosts: Post[];
-  filteredPosts: Post[];
-  setPostsByUserId: (userId: string) => void;
+  availablePosts: Post[];
+  firstPagePosts: Post[];
+  toDisplay: Post[];
   setPosts: (posts: Post[]) => void;
-  setCurrentPagedPosts: (currentVisiblePosts: Post[]) => void;
-  setFilteredPosts: (filteredPosts: Post[]) => void;
+  setAvailablePosts: (availablePosts: Post[]) => void;
+  setFirstPagePosts: (firstPagePosts: Post[]) => void;
+  setToDisplay: (toDisplay: Post[]) => void;
 };
 
 export const usePostStore = create<PostsStore>()((set) => ({
   posts: [],
-  currentPagedPosts: [],
-  filteredPosts: [],
-  setPostsByUserId: (userId: string) =>
-    set((state) => {
-      const filtered = state.currentPagedPosts.filter(
-        (post) => post.userId == userId
-      );
-      return { filteredPosts: filtered };
-    }),
-  setFilteredPosts: (filteredPosts: Post[]) => set(() => ({ filteredPosts })),
-  setPosts: (posts: Post[]) => set(() => ({ posts })),
-  setCurrentPagedPosts: (currentPagedPosts: Post[]) =>
-    set(() => ({ currentPagedPosts, filteredPosts: currentPagedPosts })),
+  availablePosts: [],
+  firstPagePosts: [],
+  toDisplay: [],
+  setPosts: (posts: Post[]) => set(() => ({ posts, availablePosts: posts })),
+  setAvailablePosts: (availablePosts: Post[]) =>
+    set(() => ({ availablePosts })),
+  setFirstPagePosts: (firstPagePosts: Post[]) =>
+    set(() => ({ firstPagePosts })),
+  setToDisplay: (toDisplay: Post[]) => set(() => ({ toDisplay })),
 }));
