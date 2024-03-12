@@ -1,5 +1,7 @@
 @use "../../../assets/styles/global.scss" as *;
 
-input::placeholder {
-  color: var(--old-world);
+input {
+  &::placeholder {
+    color: var(--old-world);
+  }
 }

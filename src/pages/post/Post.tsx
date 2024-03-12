@@ -75,7 +75,7 @@ export const PostPage = (): ReactElement => {
 
   const generateParagraph = (text: string, index: number): ReactElement => {
     return (
-      <p key={index} className={styles.text}>
+      <p key={index} className={styles.paragraphContainer}>
         {`${getCapitalizedText(text)}. ${lorem}`}
       </p>
     );
@@ -107,7 +107,11 @@ export const PostPage = (): ReactElement => {
               label="Next Article"
             />
           </div>
-          {author && <Author author={author} />}
+          {author && (
+            <div className={styles.authorContainer}>
+              <Author author={author} />
+            </div>
+          )}
           <Comments comments={comments} />
         </div>
       )}
