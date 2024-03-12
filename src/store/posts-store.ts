@@ -4,23 +4,24 @@ import { Post } from "../models/Post";
 type PostsStore = {
   posts: Post[];
   availablePosts: Post[];
-  firstPagePosts: Post[];
-  toDisplay: Post[];
+  currentPagePosts: Post[];
+  postsToDisplay: Post[];
   setPosts: (posts: Post[]) => void;
   setAvailablePosts: (availablePosts: Post[]) => void;
-  setFirstPagePosts: (firstPagePosts: Post[]) => void;
-  setToDisplay: (toDisplay: Post[]) => void;
+  setCurrentPagePosts: (currentPagePosts: Post[]) => void;
+  setPostsToDisplay: (postsToDisplay: Post[]) => void;
 };
 
 export const usePostStore = create<PostsStore>()((set) => ({
   posts: [],
   availablePosts: [],
-  firstPagePosts: [],
-  toDisplay: [],
+  currentPagePosts: [],
+  postsToDisplay: [],
   setPosts: (posts: Post[]) => set(() => ({ posts, availablePosts: posts })),
   setAvailablePosts: (availablePosts: Post[]) =>
     set(() => ({ availablePosts })),
-  setFirstPagePosts: (firstPagePosts: Post[]) =>
-    set(() => ({ firstPagePosts })),
-  setToDisplay: (toDisplay: Post[]) => set(() => ({ toDisplay })),
+  setCurrentPagePosts: (currentPagePosts: Post[]) =>
+    set(() => ({ currentPagePosts })),
+  setPostsToDisplay: (postsToDisplay: Post[]) =>
+    set(() => ({ postsToDisplay })),
 }));

@@ -2,15 +2,18 @@ import styles from "./pagination.module.scss";
 import nextIcon from "../../assets/next.svg";
 import { Button } from "../button/Button";
 import { v4 as uuidv4 } from "uuid";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePostStore } from "../../store/posts-store";
+import { usePaginationStore } from "../../store/pagination-store";
 
 export const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
+  const currentPage = usePaginationStore((state) => state.currentPage);
   const availablePosts = usePostStore((state) => state.availablePosts);
-  const setFirstPagePosts = usePostStore((state) => state.setFirstPagePosts);
-  const setToDisplay = usePostStore((state) => state.setToDisplay);
+  const setCurrentPage = usePaginationStore((state) => state.setCurrentPage);
+  const setCurrentPagePosts = usePostStore(
+    (state) => state.setCurrentPagePosts
+  );
+  const setPostsToDisplay = usePostStore((state) => state.setPostsToDisplay);
 
   const recordsPerPage = 5;
   const numberOfPages = Math.ceil(availablePosts.length / recordsPerPage);
@@ -31,8 +34,8 @@ export const Pagination = () => {
       indexOfFirstRecord,
       indexOfLastRecord
     );
-    setFirstPagePosts(currentRecords);
-    setToDisplay(currentRecords);
+    setCurrentPagePosts(currentRecords);
+    setPostsToDisplay(currentRecords);
   };
 
   useEffect(() => {

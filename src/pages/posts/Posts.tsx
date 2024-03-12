@@ -7,11 +7,11 @@ import { PostGrid } from "../../components/post-grid/PostGrid";
 import { Pagination } from "../../components/pagination/Pagination";
 
 export const PostsPage = (): ReactElement => {
-  const toDisplayPosts = usePostStore((state) => state.toDisplay);
+  const postsToDisplay = usePostStore((state) => state.postsToDisplay);
   return (
     <>
       <Header
-        title={`Posts found: ${toDisplayPosts.length}`}
+        title={`Posts found: ${postsToDisplay.length}`}
         className="headerContainer"
       />
       <div className={styles.container}>
