@@ -35,7 +35,7 @@ export class PostService {
     }
   }
 
-  async getPostFromStore(postId: string): Promise<Post | undefined> {
+  async getPostFromStore(postId: number): Promise<Post | undefined> {
     const posts = usePostStore.getState().posts;
     if (posts.length) {
       return posts.find((post: Post) => post.id == postId);
@@ -47,7 +47,7 @@ export class PostService {
     }
   }
 
-  async getPost(postId: string): Promise<Post | null> {
+  async getPost(postId: number): Promise<Post | null> {
     try {
       const url = `${API_URLS.Posts}/${postId}`;
       const responseData = await this.dataService.get<Post>(url);
