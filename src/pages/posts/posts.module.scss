@@ -3,7 +3,7 @@
 $posts-breaking-point: 1354px;
 
 .container {
-  padding: 6rem 11rem;
+  padding: 7rem 11rem;
   @include responsiveQuery($posts-breaking-point) {
     padding: 3rem 2rem;
   }

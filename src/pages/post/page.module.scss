@@ -8,9 +8,18 @@
   .buttonContainer {
     @include display-flex;
     @include justify-content-space-between;
+    margin-top: 0;
+  }
+  .paragraphContainer {
+    color: var(--space-station);
+    font-size: $fs-s;
+    font-family: var(--font-family-segoe);
+  }
+  .authorContainer {
+    margin-bottom: 12%;
   }
 }
 
 .container > div {
-  margin: 6%;
+  margin: 6% 6% 8% 6%;
 }

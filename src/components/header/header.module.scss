@@ -5,8 +5,8 @@
   @include align-items-center;
   font-size: $fs-xxl;
   p {
-    margin: var(no-margin);
-    font-family: var(var(--font-family-montserrat));
+    @include no-margin;
+    font-family: var(--font-family-montserrat);
     font-weight: $fw-400;
   }
 }

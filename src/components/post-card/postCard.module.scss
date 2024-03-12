@@ -15,8 +15,8 @@ $card-max-width: 390px;
   .postTitle {
     text-align: (--text-al);
     color: var(--night-sky);
-    font-size: 18px;
-    font-family: var(--font-family-smontserrat);
+    font-size: $fs-m;
+    font-family: var(--font-family-montserrat);
     font-weight: $fw-600;
     font-style: normal;
     padding-bottom: $gap-10;
@@ -26,7 +26,7 @@ $card-max-width: 390px;
   .largePostTitle {
     font-size: $fs-xl;
     font-weight: $fw-600;
-    font-family: var(--font-family-smontserrat);
+    font-family: var(--font-family-montserrat);
     font-style: normal;
     padding-bottom: $gap-10;
   }
@@ -39,7 +39,7 @@ $card-max-width: 390px;
     .contentBody {
       text-align: (--text-al);
       font-family: var(--font-family-segoe), sans-serif;
-      font-size: $fs-m;
+      font-size: $fs-s;
       color: var(--space-station);
     }
 
@@ -50,10 +50,10 @@ $card-max-width: 390px;
     button {
       @include no-border;
       @include cursor-pointer;
-      text-align: (--text-al);
-      font-family: var(--font-family-smontserrat);
+      text-align: var(--text-al);
+      font-family: var(--font-family-montserrat);
       color: var(--night-sky);
-      font-size: $fs-m;
+      font-size: $fs-s;
       font-weight: $fw-500;
       background: var(--white);
     }
