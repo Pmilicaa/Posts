@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import styles from "./page.module.scss";
 import { Header } from "../../components/header/Header";
 import { Post } from "../../models/Post";
@@ -41,7 +42,7 @@ export const PostPage = (): ReactElement => {
   }, [postInfo, id]);
 
   const getAuthor = (postInfo: Post): void => {
-    const user = userServiceInstance.getUserById(postInfo.userId);
+    const user = userServiceInstance.getUserByIdFromStore(postInfo.userId);
     if (user) {
       setAuthor(user);
     }
@@ -51,7 +52,9 @@ export const PostPage = (): ReactElement => {
     if (id) {
       const responseCommentData =
         await postServiceInstance.getCommentsByPost(id);
-      const responsePostData = await postServiceInstance.getPostFromStore(id);
+      const responsePostData = await postServiceInstance.getPostFromStore(
+        Number(id)
+      );
       if (responseCommentData) {
         setComments(responseCommentData);
       }
@@ -73,9 +76,9 @@ export const PostPage = (): ReactElement => {
     navigate(`/posts/${postIndex}`);
   };
 
-  const generateParagraph = (text: string, index: number): ReactElement => {
+  const generateParagraph = (text: string): ReactElement => {
     return (
-      <p key={index} className={styles.text}>
+      <p key={uuidv4()} className={styles.paragraphContainer}>
         {`${getCapitalizedText(text)}. ${lorem}`}
       </p>
     );
@@ -89,9 +92,7 @@ export const PostPage = (): ReactElement => {
             <Header title={`${postInfo.title}.`} className="headerColor" />
           </div>
           <hr />
-          <div>
-            {splitBody.map((text, index) => generateParagraph(text, index))}
-          </div>
+          <div>{splitBody.map((text) => generateParagraph(text))}</div>
           <hr />
           <div className={styles.buttonContainer}>
             <ButtonWithIcon
@@ -107,7 +108,11 @@ export const PostPage = (): ReactElement => {
               label="Next Article"
             />
           </div>
-          {author && <Author author={author} />}
+          {author && (
+            <div className={styles.authorContainer}>
+              <Author author={author} />
+            </div>
+          )}
           <Comments comments={comments} />
         </div>
       )}

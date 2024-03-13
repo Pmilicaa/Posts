@@ -10,12 +10,15 @@ $padding: 20px 60px;
   padding: $padding;
   .authorTitle {
     text-align: var(--text-al);
-    font: normal normal normal 16px/25px var(--font-family-segoe);
+    font-family: var(--font-family-segoe);
+    font-size: $fs-s;
+    font-weight: $fw-400;
+    padding-bottom: 10px;
     color: var(--space-station);
   }
   .authorDesc {
     text-align: var(--text-al);
-    font: normal normal 20px/35px;
+    font-size: $fs-m;
     font-weight: $fw-600;
     font-family: var(--font-family-montserrat);
     color: var(--night-sky);

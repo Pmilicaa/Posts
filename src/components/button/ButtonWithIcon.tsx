@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import React, { ReactElement } from "react";
 import styles from "./button.module.scss";
 
 interface ButtonProps {
@@ -8,7 +8,7 @@ interface ButtonProps {
   isDisabled?: boolean;
   icon: {
     src: string;
-    styles: object;
+    styles: React.CSSProperties;
     isIconRight: boolean;
   };
 }
@@ -24,11 +24,21 @@ export const ButtonWithIcon = ({
       <>
         {isIconRight ? (
           <>
-            <span>{label}</span> <img style={icon.styles} src={icon.src} />
+            <span>{label}</span>
+            <img
+              style={icon.styles}
+              className={isDisabled ? styles.disabled : ""}
+              src={icon.src}
+            />
           </>
         ) : (
           <>
-            <img style={icon.styles} src={icon.src} /> <span>{label}</span>
+            <img
+              style={icon.styles}
+              src={icon.src}
+              className={isDisabled ? styles.disabled : ""}
+            />{" "}
+            <span>{label}</span>
           </>
         )}
       </>

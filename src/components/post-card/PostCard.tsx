@@ -1,9 +1,11 @@
 import { ReactElement, useEffect, useState } from "react";
 import styles from "./postCard.module.scss";
-import rightArrow from "../../assets/right-arrow.svg";
 import { Post } from "../../models/Post";
 import { useNavigate } from "react-router-dom";
 import { getCapitalizedText, getSplitBody } from "../../util/helpers";
+import { ButtonWithIcon } from "../button/ButtonWithIcon";
+import { rightArrowIcon } from "../../constants";
+import { v4 as uuidv4 } from "uuid";
 
 interface PostCardProps {
   post: Post;
@@ -34,14 +36,18 @@ export const PostCard = ({ post, isLarge }: PostCardProps): ReactElement => {
             splitBody.map((paragraph) => {
               return (
                 <span
+                  key={uuidv4()}
                   className={styles.bodyText}
                 >{`${getCapitalizedText(paragraph)}. `}</span>
               );
             })}
         </p>
-        <button className={styles.button} onClick={handleOnClick}>
-          Read More <img src={rightArrow} />
-        </button>
+        <ButtonWithIcon
+          label="Read More"
+          className={styles.button}
+          onClick={handleOnClick}
+          icon={rightArrowIcon}
+        />
       </div>
     </div>
   );

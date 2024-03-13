@@ -23,7 +23,19 @@ export class PostService {
     }
   }
 
-  async getPostFromStore(postId: string): Promise<Post | undefined> {
+  async getFilteredPostsByUserId(userId: string): Promise<Post[] | null> {
+    try {
+      const responseData = await this.dataService.get<Post[]>(
+        `${API_URLS.Posts}?userId=${userId}`
+      );
+      return responseData;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
+  }
+
+  async getPostFromStore(postId: number): Promise<Post | undefined> {
     const posts = usePostStore.getState().posts;
     if (posts.length) {
       return posts.find((post: Post) => post.id == postId);
@@ -35,7 +47,7 @@ export class PostService {
     }
   }
 
-  async getPost(postId: string): Promise<Post | null> {
+  async getPost(postId: number): Promise<Post | null> {
     try {
       const url = `${API_URLS.Posts}/${postId}`;
       const responseData = await this.dataService.get<Post>(url);

@@ -14,7 +14,9 @@ export const CommentComp = ({ comment }: CommentProps): ReactElement => {
         <div className={styles.commentTitle}>
           {getCapitalizedText(comment.name)}
         </div>
-        <div className={styles.commentBody}>{comment.body}</div>
+        <div className={styles.commentBody}>
+          {getCapitalizedText(comment.body)}
+        </div>
       </div>
     </div>
   );
