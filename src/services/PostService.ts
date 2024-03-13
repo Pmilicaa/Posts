@@ -15,7 +15,6 @@ export class PostService {
   async getPosts(): Promise<Post[] | null> {
     try {
       const responseData = await this.dataService.get<Post[]>(API_URLS.Posts);
-      console.log("Fetched posts data:", responseData);
       return responseData;
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -61,7 +60,6 @@ export class PostService {
     try {
       const url = `${API_URLS.Posts}/${postId}/${API_URLS.Comments}`;
       const responseData = await this.dataService.get<Comment[]>(url);
-      console.log("Fetched posts data:", responseData);
       return responseData;
     } catch (error) {
       console.error("Error fetching data:", error);
