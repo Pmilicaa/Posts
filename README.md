@@ -1,30 +1,48 @@
-# React + TypeScript + Vite
+React App Documentation
+Introduction
+Welcome to the documentation for our React app powered by Vite! This documentation will guide you through running the app and understanding its features.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Getting Started
+To run the app locally, make sure you have Node.js and npm installed on your machine.
 
-Currently, two official plugins are available:
+Clone the repository from GitHub:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+bash
+Copy code
+git clone https://github.com/Pmilicaa/Posts.git
+Navigate into the project directory:
 
-## Expanding the ESLint configuration
+bash
+Copy code
+cd Posts
+Install dependencies:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+bash
+Copy code
+npm install
+Running the App
+To start the development server and run the app, use the following command:
 
-- Configure the top-level `parserOptions` property like this:
+bash
+Copy code
+npm run dev
+This will start the Vite development server and open your default web browser to display the app.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+App Features
+Showing All Posts
+The app displays a list of posts fetched from the server. Posts are shown on the homepage.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Filtering by User
+Users can filter posts by author. There is a select component that allows users to select a specific author, and the app will display only posts created by that user.
+
+Searching
+Users can search for posts using a search bar. Entering keywords in the search bar filters the posts to display only those containing the entered keywords.
+
+Pagination
+Posts are paginated, meaning they are displayed in groups or pages. Users can navigate between pages to view different sets of posts. The UI should include navigation controls such as "Next" and "Previous" buttons to facilitate pagination.
+
+Viewing Comments
+Users can view comments associated with each post. Clicking on a post should expand it to display its comments.
+
+Navigation
+Users can navigate between pages of posts using pagination controls. They can move to the next or previous page to view additional posts.
