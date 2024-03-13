@@ -38,7 +38,6 @@ Zustand provides a minimalistic API that allows you to manage state with ease, w
 
 To install Zustand, you can use npm or yarn:
 
-```bash
 npm install zustand
 
 
