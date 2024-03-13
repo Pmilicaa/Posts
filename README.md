@@ -52,6 +52,10 @@ Users can view comments associated with each post. Clicking on a post should exp
 ## Navigation
 Users can navigate between pages of posts using pagination controls. They can move to the next or previous page to view additional posts.
 
+## Responsive
+
+Application is responsive -https://www.loom.com/share/c1a53e4636fb47d9b45b773e424212bb
+
 ## TODO
 
 Pagination dots
