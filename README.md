@@ -62,3 +62,9 @@ Users can view comments associated with each post. Clicking on a post should exp
 
 ## Navigation
 Users can navigate between pages of posts using pagination controls. They can move to the next or previous page to view additional posts.
+
+##TODO
+
+Pagination dots
+
+Better error handling
