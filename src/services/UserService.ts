@@ -17,9 +17,9 @@ export class UserService {
     }
   }
 
-  getUserByIdFromStore(id: string): User | undefined {
+  getUserByIdFromStore(id: number): User | undefined {
     const users = useUserStore.getState().users;
-    return users.find((user) => user.id == id);
+    return users.find((user) => user.id === id);
   }
 }
 export const userServiceInstance = new UserService();

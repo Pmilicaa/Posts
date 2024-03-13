@@ -3,16 +3,16 @@ import { usePostStore } from "../../../store/posts-store";
 import styles from "./search-input.module.scss";
 
 export const SearchInput = (): ReactElement => {
-  const setFilteredPosts = usePostStore((state) => state.setFilteredPosts);
-  const currentPagedPosts = usePostStore((state) => state.currentPagedPosts);
-  const filteredPosts = usePostStore((state) => state.filteredPosts);
+  const postsToDisplay = usePostStore((state) => state.postsToDisplay);
+  const currentPagePosts = usePostStore((state) => state.currentPagePosts);
+  const setPostsToDisplay = usePostStore((state) => state.setPostsToDisplay);
 
   const setSearchQuery = (value: string): void => {
     const posts = value
-      ? filteredPosts.filter((post) => post.title.includes(value))
-      : currentPagedPosts;
+      ? postsToDisplay.filter((post) => post.title.includes(value))
+      : currentPagePosts;
 
-    setFilteredPosts(posts);
+    setPostsToDisplay(posts);
   };
 
   return (

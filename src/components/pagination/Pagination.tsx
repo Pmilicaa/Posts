@@ -1,17 +1,22 @@
 import styles from "./pagination.module.scss";
 import nextIcon from "../../assets/next.svg";
 import { Button } from "../button/Button";
+import { v4 as uuidv4 } from "uuid";
+import { useEffect } from "react";
+import { usePostStore } from "../../store/posts-store";
+import { usePaginationStore } from "../../store/pagination-store";
 
-interface PaginationProps {
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
-  numberOfPages: number;
-}
-export const Pagination = ({
-  currentPage,
-  setCurrentPage,
-  numberOfPages,
-}: PaginationProps) => {
+export const Pagination = () => {
+  const currentPage = usePaginationStore((state) => state.currentPage);
+  const availablePosts = usePostStore((state) => state.availablePosts);
+  const setCurrentPage = usePaginationStore((state) => state.setCurrentPage);
+  const setCurrentPagePosts = usePostStore(
+    (state) => state.setCurrentPagePosts
+  );
+  const setPostsToDisplay = usePostStore((state) => state.setPostsToDisplay);
+
+  const recordsPerPage = 5;
+  const numberOfPages = Math.ceil(availablePosts.length / recordsPerPage);
   const pageNumbers = [...Array(numberOfPages + 1).keys()].slice(1);
 
   const goToNextPage = (): void => {
@@ -21,6 +26,25 @@ export const Pagination = ({
   const goToPrevPage = (): void => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
+
+  const paginateAndSetDisplay = () => {
+    const indexOfLastRecord = currentPage * recordsPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+    const currentRecords = availablePosts.slice(
+      indexOfFirstRecord,
+      indexOfLastRecord
+    );
+    setCurrentPagePosts(currentRecords);
+    setPostsToDisplay(currentRecords);
+  };
+
+  useEffect(() => {
+    paginateAndSetDisplay();
+  }, []);
+
+  useEffect(() => {
+    paginateAndSetDisplay();
+  }, [currentPage, availablePosts]);
 
   return (
     <div className={styles.container}>
@@ -37,7 +61,7 @@ export const Pagination = ({
       </a>
       {pageNumbers.map((pgNumber) => (
         <div
-          key={pgNumber}
+          key={uuidv4()}
           className={`${currentPage === pgNumber ? styles.active : ""} `}
         >
           <Button

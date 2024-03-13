@@ -3,16 +3,19 @@ import styles from "./author-filter.module.scss";
 import { useUserStore } from "../../../store/users-store";
 import { usePostStore } from "../../../store/posts-store";
 import { postServiceInstance } from "../../../services/PostService";
+import { usePaginationStore } from "../../../store/pagination-store";
 
 export const AuthorFilter = (): ReactElement => {
   const [value, setValue] = useState<string>("");
   const users = useUserStore((state) => state.users);
-  const setFilteredPosts = usePostStore((state) => state.setFilteredPosts);
+  const setAvailablePosts = usePostStore((state) => state.setAvailablePosts);
+  const setCurrentPage = usePaginationStore((state) => state.setCurrentPage);
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = async (
     e
   ): Promise<void> => {
     setValue(e.target.value);
+    setCurrentPage(1);
     await fetchData(e.target.value);
   };
 
@@ -21,7 +24,7 @@ export const AuthorFilter = (): ReactElement => {
       const responseCommentData =
         await postServiceInstance.getFilteredPostsByUserId(userId);
       if (responseCommentData) {
-        setFilteredPosts(responseCommentData);
+        setAvailablePosts(responseCommentData);
       }
     }
   };
