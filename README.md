@@ -30,16 +30,6 @@ This will start the Vite development server and open your default web browser to
 
 This project utilizes Zustand for state management. Zustand is a simple and flexible state management solution for React applications.
 
-### Why Zustand?
-
-Zustand provides a minimalistic API that allows you to manage state with ease, without the overhead of more complex state management libraries. It offers a way to create state containers (stores) and subscribe to state changes within your components.
-
-### Installation
-
-To install Zustand, you can use npm or yarn:
-
-npm install zustand
-
 
 ## App Features
 Preview of all Posts and one post
