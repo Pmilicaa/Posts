@@ -9,7 +9,6 @@ export class UserService {
   async getUsers(): Promise<User[] | null> {
     try {
       const responseData = await this.dataService.get<User[]>(API_URLS.Users);
-      console.log("Fetched users data:", responseData);
       return responseData;
     } catch (error) {
       console.error("Error fetching data:", error);
