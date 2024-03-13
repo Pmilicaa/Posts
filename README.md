@@ -14,14 +14,16 @@ git clone https://github.com/Pmilicaa/Posts.git
 
 Install dependencies:
 
-npm install
+`npm install`
 
 
 Running the App
 To start the development server and run the app, use the following command:
 
 
-npm run dev
+`npm run dev`
+
+
 This will start the Vite development server and open your default web browser to display the app.
 
 ## App Features
