@@ -15,7 +15,7 @@ export const Pagination = () => {
   );
   const setPostsToDisplay = usePostStore((state) => state.setPostsToDisplay);
 
-  const recordsPerPage = 5;
+  const recordsPerPage = 10;
   const numberOfPages = Math.ceil(availablePosts.length / recordsPerPage);
   const pageNumbers = [...Array(numberOfPages + 1).keys()].slice(1);
 
