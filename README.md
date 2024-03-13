@@ -62,6 +62,6 @@ Pagination dots
 
 Better error handling
 
-##DEMO
+## DEMO
 
 https://www.loom.com/share/14122ee2337847bda67a3e63ecf804b9
